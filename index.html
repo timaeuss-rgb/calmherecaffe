@@ -105,8 +105,6 @@
           <input type="hidden" name="ECMoney" id="totalPrice" value="250">
           <input type="hidden" name="ReceiverID" id="receiverID">
 
-          <input type="hidden" name="PayType" value="1"> <input type="hidden" name="IsPost" value="N">
-
           <label>預購數量</label>
           <select id="qty" onchange="calcTotal()">
             <option value="1">1 條 (NT$ 250)</option>
@@ -120,7 +118,7 @@
           <input type="text" name="ReceiverName" id="buyerName" required placeholder="請輸入聯絡姓名">
 
           <label>聯絡電話</label>
-          <input type="tel" name="ReceiverTel" required placeholder="請輸入手機號碼">
+          <input type="tel" name="ReceiverTel" id="buyerTel" required placeholder="請輸入手機號碼">
 
           <div class="total-pane">
             <span>總計金額</span>
@@ -139,7 +137,7 @@
   </div>
 
   <script>
-    // 即時計算金額與變更品項名稱
+    // 即時計算總價與品項名稱
     function calcTotal() {
       var qty = document.getElementById('qty').value;
       var total = qty * 250;
@@ -148,9 +146,8 @@
       document.getElementById('displayTotal').innerText = 'NT$ ' + total;
     }
 
-    // 送出金流前的最後打包與安全防護
+    // 按下結帳時，自動產生單號與必要的檢查欄位
     function prepareSubmit() {
-      // 1. 自動生成 Calmhere 專屬時間戳記訂單編號 (格式: CH + 年月日時分秒)
       var d = new Date();
       var orderNo = "CH" + d.getFullYear() +
                     ("0" + (d.getMonth() + 1)).slice(-2) +
@@ -160,11 +157,11 @@
                     ("0" + d.getSeconds()).slice(-2);
       document.getElementById('orderNo').value = orderNo;
 
-      // 2. 將訂購人姓名同步帶入 ReceiverID 欄位避免 API 噴錯
-      var nameVal = document.getElementById('buyerName').value;
-      document.getElementById('receiverID').value = nameVal;
+      // PayNow 規定 ReceiverID 欄位不可為空，直接用電話號碼代入補齊
+      var telVal = document.getElementById('buyerTel').value;
+      document.getElementById('receiverID').value = telVal;
 
-      return true; // 准許送出並轉跳
+      return true;
     }
   </script>
 </body>
