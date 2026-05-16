@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calmhere Caffè</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Noto+Sans+TC:wght@300;400;500&display=swap">
+  <style>
+    body { margin: 0; padding: 0; font-family: 'Noto Sans TC', sans-serif; background-color: #fcfcfc; color: #2c2c2c; -webkit-font-smoothing: antialiased; }
+    .serif { font-family: 'Lora', 'Noto Serif TC', serif; }
+    .container { max-width: 800px; margin: 0 auto; padding: 60px 20px; }
+    header { text-align: center; padding: 80px 0 60px 0; background: #fafafa; border-bottom: 1px solid #f0f0f0; }
+    header h1 { font-size: 2.8rem; font-weight: 400; letter-spacing: 4px; margin: 0 0 15px 0; color: #111; }
+    header p { font-size: 1rem; color: #888; font-style: italic; letter-spacing: 1px; margin: 0; }
+    section { margin-bottom: 70px; line-height: 1.8; }
+    h2 { font-size: 1.4rem; font-weight: 500; letter-spacing: 2px; border-bottom: 1px solid #eaeaea; padding-bottom: 10px; margin-bottom: 25px; color: #1a1a1a; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 30px; }
+    @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+    .menu-item { margin-bottom: 20px; }
+    .menu-item-title { font-weight: 500; display: flex; justify-content: space-between; }
+    .menu-item-desc { font-size: 0.9rem; color: #777; margin-top: 2px; }
+    .notice-box { background: #f7f7f7; padding: 25px; border-radius: 4px; font-size: 0.92rem; color: #555; border-left: 2px solid #c49a45; }
+    .form-card { background: #fff; border: 1px solid #eee; padding: 35px; border-radius: 6px; box-shadow: 0 4px 20px rgba(0,0,0,0.02); max-width: 500px; margin: 0 auto; }
+    label { display: block; font-size: 0.85rem; font-weight: 500; margin-bottom: 6px; color: #444; }
+    input, select { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; margin-bottom: 20px; font-size: 0.95rem; background: #fff; }
+    input:focus, select:focus { outline: none; border-color: #222; }
+    .total-pane { border-top: 1px dashed #eee; padding-top: 20px; display: flex; justify-content: space-between; align-items: center; }
+    .total-price { font-size: 1.5rem; font-weight: bold; color: #c49a45; }
+    button { width: 100%; background: #111; color: #fff; border: none; padding: 15px; border-radius: 4px; font-size: 1rem; letter-spacing: 1px; cursor: pointer; margin-top: 25px; transition: background 0.2s; }
+    button:hover { background: #333; }
+    footer { text-align: center; font-size: 0.8rem; color: #aaa; margin-top: 100px; letter-spacing: 1px; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1 class="serif">Calmhere Caffè</h1>
+    <p>在礁溪的慢活角落，尋回一杯咖啡的純粹。</p>
+  </header>
+
+  <div class="container">
+    
+    <section>
+      <h2 class="serif">關於空間 | About</h2>
+      <p style="letter-spacing: 0.5px;">
+        隱身於宜蘭礁溪的精品咖啡與手作烘焙工作室。我們專注於咖啡豆的烘焙科學與風味發展，
+        並堅持使用日本三盆糖、Catherine麵粉等頂級食材，將京都的極簡美學，融入每一杯咖啡與每一份日常點心中。
+      </p>
+    </section>
+
+    <section>
+      <h2 class="serif">精心定番 | Menu</h2>
+      <div class="grid">
+        <div>
+          <h3 style="font-size: 1.1rem; color: #c49a45; font-weight: 500;">☕ Specialty Coffee</h3>
+          <div class="menu-item">
+            <div class="menu-item-title"><span>手沖單品咖啡</span></div>
+            <div class="menu-item-desc">現場豆單提供，專注焙度與產區科學發展</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-title"><span>經典義式經典</span></div>
+            <div class="menu-item-desc">拿鐵咖啡 / 卡布奇諾 / 短生咖啡 Flat White</div>
+          </div>
+        </div>
+        <div>
+          <h3 style="font-size: 1.1rem; color: #c49a45; font-weight: 500;">🍞 Handcrafted Bakery</h3>
+          <div class="menu-item">
+            <div class="menu-item-title"><span>琥珀・湯種生吐司</span></div>
+            <div class="menu-item-desc">當日新鮮手作，嚴選極致 Catherine 麵粉風味</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-title"><span>日式焦糖布丁</span></div>
+            <div class="menu-item-desc">頂級鮮奶油與香草莢成熟工法，內用限定</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="serif">空間規範與特別活動 | Notice</h2>
+      <div class="notice-box">
+        <span style="font-weight: 500; color: #111;">⏳ 留白週四 (Pay What You Feel)</span><br>
+        每個月最後一個禮拜四，現場提供無菜單體驗，價錢完全由你決定。來這裡，給心靈留點白。<br><br>
+        <span style="font-weight: 500; color: #111;">🐾 寵物友善規範</span><br>
+        室內請為毛孩穿戴禮貌帶，且不落地、不親上沙發桌椅，謝謝您與我們共同維護舒適的空間。
+      </div>
+    </section>
+
+    <section id="order">
+      <h2 class="serif">線上預購 | Pre-order</h2>
+      <div class="form-card">
+        <div style="text-align: center; margin-bottom: 25px;">
+          <h3 style="margin: 0 0 5px 0; font-weight: 500;">琥珀・湯種生吐司</h3>
+          <p style="margin:0; font-size:0.88rem; color:#888;">⚠️ 需於取貨前一天下午 17:00 前完成預訂</p>
+        </div>
+        
+        <form action="https://www.paynow.com.tw/PayCenter.aspx" method="post" target="_top">
+          <input type="hidden" name="WebNo" value="R4NmiJjhH5Q9ETS">
+          <input type="hidden" name="Password" value="請填入你的PayNow介面密碼">
+          <input type="hidden" name="OrderNo" id="orderNo">
+          <input type="hidden" name="ProductName" id="productName" value="琥珀・湯種生吐司 x 1">
+          <input type="hidden" name="ECMoney" id="totalPrice" value="250">
+          <input type="hidden" name="PayType" value="1">
+          <input type="hidden" name="IsPost" value="N">
+
+          <label>預購數量</label>
+          <select id="qty" onchange="calcTotal()">
+            <option value="1">1 條 (NT$ 250)</option>
+            <option value="2">2 條 (NT$ 500)</option>
+            <option value="3">3 條 (NT$ 750)</option>
+            <option value="4">4 條 (NT$ 1000)</option>
+            <option value="5">5 條 (NT$ 1250)</option>
+          </select>
+
+          <label>訂購人姓名</label>
+          <input type="text" name="ReceiverName" required placeholder="請輸入聯絡姓名" onchange="syncReceiverID(this.value)">
+          <input type="hidden" name="ReceiverID" id="receiverID">
+
+          <label>聯絡電話</label>
+          <input type="tel" name="ReceiverTel" required placeholder="請輸入手機號碼">
+
+          <div class="total-pane">
+            <span>總計金額</span>
+            <span class="total-price" id="displayTotal">NT$ 250</span>
+          </div>
+
+          <button type="submit" onclick="generateOrderNo()">前往 PayNow 安全結帳</button>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2026 Calmhere Caffè. All Rights Reserved.</p>
+    </footer>
+
+  </div>
+
+  <script>
+    // 自動生成訂單編號
+    function generateOrderNo() {
+      var d = new Date();
+      var orderNo = "CH" + d.getFullYear() + ("0" + (d.getMonth() + 1)).slice(-2) + ("0" + d.getDate()).slice(-2) + ("0" + d.getHours()).slice(-2) + ("0" + d.getMinutes()).slice(-2) + ("0" + d.getSeconds()).slice(-2);
+      document.getElementById('orderNo').value = orderNo;
+    }
+    
+    function syncReceiverID(val) {
+      document.getElementById('receiverID').value = val;
+    }
+
+    function calcTotal() {
+      var qty = document.getElementById('qty').value;
+      var total = qty * 250;
+      document.getElementById('totalPrice').value = total;
+      document.getElementById('productName').value = "琥珀・湯種生吐司 x " + qty;
+      document.getElementById('displayTotal').innerText = 'NT$ ' + total;
+    }
+  </script>
+</body>
+</html>
