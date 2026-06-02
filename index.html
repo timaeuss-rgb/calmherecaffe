@@ -1,23 +1,658 @@
-<div class="form-card" style="text-align: center;">
-  <h3 style="margin: 0 0 10px 0; font-weight: 500;">琥珀・湯種生吐司</h3>
-  <p style="margin: 0 0 25px 0; font-size: 0.9rem; color: #888;">請選擇預購數量，點擊後將直接開啟 LINE Pay 付款頁面</p>
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拾光荏苒 ╳ 焙刻時光｜極致慢熟巴斯克乳酪蛋糕預購</title>
+    <!-- Tailwind CSS & FontAwesome -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            sage: '#5C6B4E',      /* 抹茶暖綠 */
+                            warmBg: '#FAF6F0',    /* 暖奶白/淺米 */
+                            caramel: '#C28A53',   /* 焦糖可可棕 */
+                            darkText: '#2B231D',  /* 深黑巧棕 */
+                            accent: '#F3EFE6',    /* 細節裝飾 */
+                            cardBg: '#FFFFFF'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans TC', 'sans-serif'],
+                        serif: ['Noto Serif TC', 'Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        /* 自訂細節過渡 */
+        .hover-lift {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(43, 35, 29, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-brand-warmBg text-brand-darkText font-sans selection:bg-brand-sage selection:text-white">
 
-  <label style="text-align: left;">請選擇購買數量</label>
-  <select id="linePaySelect" onchange="updateLinePayLink()" style="margin-bottom: 25px;">
-    <option value="你的1條LINE_PAY收款網址">1 條 (NT$ 250)</option>
-    <option value="你的2條LINE_PAY收款網址">2 條 (NT$ 500)</option>
-    <option value="你的3條LINE_PAY收款網址">3 條 (NT$ 750)</option>
-    <option value="你的4條LINE_PAY收款網址">4 條 (NT$ 1000)</option>
-  </select>
+    <!-- 頂部導覽列 -->
+    <nav class="bg-white/80 backdrop-blur-md border-b border-stone-200 py-4 px-6 sticky top-0 z-40 shadow-sm">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-brand-sage flex items-center justify-center text-white font-serif text-lg font-bold">拾</div>
+                <div>
+                    <h1 class="text-lg font-bold font-serif tracking-wide">拾光荏苒 ╳ 焙刻時光</h1>
+                    <p class="text-[10px] text-brand-sage font-medium tracking-widest uppercase">Premium Basque Preorder</p>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                <a href="#products-section" class="hidden md:inline-block text-xs font-medium tracking-wider hover:text-brand-caramel transition-all">手作風味</a>
+                <a href="#ingredients-section" class="hidden md:inline-block text-xs font-medium tracking-wider hover:text-brand-caramel transition-all">頂級原料</a>
+                <a href="#pickup-section" class="hidden md:inline-block text-xs font-medium tracking-wider hover:text-brand-caramel transition-all">自取須知</a>
+                
+                <!-- 網頁設定按鈕（齒輪） -->
+                <button onclick="toggleConfigModal()" class="w-8 h-8 rounded-full bg-stone-100 hover:bg-stone-200 flex items-center justify-center text-stone-600 transition-all" title="網頁設定 (連結您的Google表單)">
+                    <i class="fa-solid fa-gear"></i>
+                </button>
+                
+                <a href="#products-section" class="bg-brand-sage hover:bg-opacity-90 text-white text-xs px-4 py-2 rounded font-medium tracking-wider transition-all">
+                    立刻預訂
+                </a>
+            </div>
+        </div>
+    </nav>
 
-  <a id="linePayBtn" href="你的1條LINE_PAY收款網址" target="_top" style="display: block; background: #06C755; color: #fff; text-decoration: none; padding: 15px; border-radius: 4px; font-size: 1rem; font-weight: 500; letter-spacing: 1px;">
-    使用 LINE Pay 線上預購
-  </a>
-</div>
+    <!-- 主視覺 Banner (Hero Section) -->
+    <header class="relative bg-stone-900 text-white h-[80vh] min-h-[500px] flex items-center overflow-hidden">
+        <div class="absolute inset-0">
+            <!-- 高質感巴斯克背景圖（暖光影） -->
+            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1600&auto=format&fit=crop" class="w-full h-full object-cover brightness-[0.4]" alt="Basque Cheesecake Hero">
+        </div>
+        <div class="max-w-4xl mx-auto px-6 relative z-10 text-center flex flex-col items-center">
+            <span class="bg-brand-caramel text-white text-xs px-4 py-1 rounded-full tracking-widest font-semibold uppercase mb-4 animate-pulse">SPECIAL COLLABORATION</span>
+            <h2 class="text-4xl md:text-6xl font-serif font-bold tracking-wide leading-tight">
+                在靜謐時光裡，<br>與極致慢熟巴斯克相遇
+            </h2>
+            <div class="w-16 h-0.5 bg-brand-caramel my-6"></div>
+            <p class="text-stone-300 text-sm md:text-base max-w-xl leading-relaxed font-light">
+                宜蘭最強可頌帕尼尼名店<strong>「拾光荏苒」</strong>寄賣限定！<br>
+                每日限量手工烘烤、高溫焦糖外皮與冰淇淋般的流心內餡，為你的午後時光點綴完美儀式感。
+            </p>
+            <a href="#products-section" class="mt-8 px-8 py-3.5 bg-brand-caramel hover:bg-opacity-90 text-white text-sm font-bold tracking-widest rounded-lg shadow-lg transition-all flex items-center gap-2">
+                挑選本日限定美味 <i class="fa-solid fa-arrow-down"></i>
+            </a>
+        </div>
+    </header>
 
-<script>
-  function updateLinePayLink() {
-    var selectedUrl = document.getElementById('linePaySelect').value;
-    document.getElementById('linePayBtn').href = selectedUrl;
-  }
-</script>
+    <!-- 聯名核心介紹區 -->
+    <section class="py-16 px-6 bg-white border-b border-stone-200">
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="text-brand-caramel text-xs font-bold tracking-widest uppercase mb-2">The Collaboration</p>
+            <h3 class="text-2xl md:text-3.5xl font-serif font-bold tracking-wide">焙刻時光 ╳ 拾光荏苒</h3>
+            <p class="text-stone-600 text-sm mt-4 leading-relaxed max-w-2xl mx-auto">
+                我們始終相信，好的鹹食與極致的甜點，是美好生活的一體兩面。這次，我們將慢烘熟成的手作巴斯克直送宜蘭最強輕食店「拾光荏苒」，讓您在品嚐完熱騰騰的帕尼尼後，能直接在店內帶走一份令人流連忘返的極致甜蜜。
+            </p>
+        </div>
+    </section>
+
+    <!-- 頂級原料宣言區 -->
+    <section id="ingredients-section" class="py-20 px-6 bg-brand-accent/50">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <p class="text-brand-sage text-xs font-bold tracking-widest uppercase mb-2">Our Ingredients</p>
+                <h3 class="text-3xl font-serif font-bold tracking-wide text-brand-darkText">🌿 頂級奢華原料宣言</h3>
+                <p class="text-stone-500 text-xs mt-2">毫不妥協的嚴選食材，是我們對美味唯一的堅持</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- 原料 1 -->
+                <div class="bg-white p-6 rounded-xl border border-stone-200 shadow-sm flex flex-col gap-3">
+                    <div class="w-10 h-10 rounded-full bg-brand-sage/10 text-brand-sage flex items-center justify-center text-lg"><i class="fa-solid fa-cow"></i></div>
+                    <h4 class="font-bold text-base">北海道 LUXE 乳酪雙重奏</h4>
+                    <p class="text-stone-600 text-xs leading-relaxed">融合頂級北海道 LUXE 奶油乳酪與澳洲經典卡夫乾酪，經過精準比例調配，創造出前所未有的極致絲滑奶香。</p>
+                </div>
+                <!-- 原料 2 -->
+                <div class="bg-white p-6 rounded-xl border border-stone-200 shadow-sm flex flex-col gap-3">
+                    <div class="w-10 h-10 rounded-full bg-brand-caramel/10 text-brand-caramel flex items-center justify-center text-lg"><i class="fa-solid fa-egg"></i></div>
+                    <h4 class="font-bold text-base">礁溪放牧快樂雞蛋</h4>
+                    <p class="text-stone-600 text-xs leading-relaxed">每日由宜蘭礁溪竹林產地新鮮直達！採用人道放牧的快樂母雞產出的優質鮮蛋，精緻純淨、毫無腥味。</p>
+                </div>
+                <!-- 原料 3 -->
+                <div class="bg-white p-6 rounded-xl border border-stone-200 shadow-sm flex flex-col gap-3">
+                    <div class="w-10 h-10 rounded-full bg-brand-sage/10 text-brand-sage flex items-center justify-center text-lg"><i class="fa-solid fa-seedling"></i></div>
+                    <h4 class="font-bold text-base">小山園五十鈴 ╳ 法芙娜</h4>
+                    <p class="text-stone-600 text-xs leading-relaxed">調味絕不將就。綠色選用京都宇治頂級「小山園五十鈴抹茶」；黑色則傾注比利時頂級 70% 法芙娜可可，口感奢華。</p>
+                </div>
+                <!-- 原料 4 (新加入開心果) -->
+                <div class="bg-white p-6 rounded-xl border border-stone-200 shadow-sm flex flex-col gap-3">
+                    <div class="w-10 h-10 rounded-full bg-brand-caramel/10 text-brand-caramel flex items-center justify-center text-lg"><i class="fa-solid fa-nut"></i></div>
+                    <h4 class="font-bold text-base">西西里 100% 開心果醬</h4>
+                    <p class="text-stone-600 text-xs leading-relaxed">重磅引進義大利西西里島頂級純開心果醬，極濃郁堅果香與起司完美乳化，烘焙後釋放出極致高雅的香氣。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 商品與預購選單區 (核心互動) -->
+    <section id="products-section" class="py-20 px-6 max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+            <p class="text-brand-caramel text-xs font-bold tracking-widest uppercase mb-2">Interactive Menu</p>
+            <h3 class="text-3xl font-serif font-bold tracking-wide">🍰 今日份慢熟手作巴斯克</h3>
+            <p class="text-stone-500 text-xs mt-2">請點選加購所需的品項與數量，下方將自動為你計算預算明細</p>
+        </div>
+
+        <!-- 商品分類一：經典單片嚐鮮 -->
+        <div class="mb-14">
+            <div class="border-l-4 border-brand-sage pl-3 mb-6">
+                <h4 class="font-serif font-bold text-xl">✨ 經典單片嚐鮮區（6吋開六，切片單售）</h4>
+                <p class="text-xs text-stone-500 mt-1">適合獨享的午後，給自己一入剛剛好的甜蜜儀式感</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 單片原味 -->
+                <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://tiffinandteaofficial.com/wp-content/uploads/2020/06/281122_5.jpg" class="w-full h-full object-cover" alt="經典原味巴斯克">
+                        <span class="absolute top-3 left-3 bg-brand-sage text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">雙乳酪金牌原味</span>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <h5 class="font-bold text-lg text-brand-darkText">【原味經典】單片</h5>
+                                <span class="text-brand-caramel font-bold text-lg">$110</span>
+                            </div>
+                            <p class="text-xs text-stone-500 leading-relaxed mb-4">微焦外皮蘊含著迷人的焦糖微苦。內餡完美呈現北海道 LUXE 的極致乳香，並夾帶台灣新鮮香草莢的優雅尾韻，滑順流心。</p>
+                        </div>
+                        <div class="flex items-center justify-between border-t border-stone-100 pt-4 mt-auto">
+                            <span class="text-xs text-stone-400">數量選擇</span>
+                            <div class="flex items-center gap-3">
+                                <button onclick="updateQty('slice_orig', -1)" class="w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center text-stone-600 hover:bg-stone-50 transition-all">-</button>
+                                <span id="qty-slice_orig" class="font-bold text-sm w-4 text-center">0</span>
+                                <button onclick="updateQty('slice_orig', 1)" class="w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center text-stone-600 hover:bg-stone-50 transition-all">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 單片抹茶麻糬 -->
+                <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover" alt="靜岡五十鈴抹茶">
+                        <span class="absolute top-3 left-3 bg-emerald-700 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">京都五十鈴 ╳ 白玉麻糬</span>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <h5 class="font-bold text-lg text-brand-darkText">【抹茶麻糬】單片</h5>
+                                <span class="text-brand-caramel font-bold text-lg">$130</span>
+                            </div>
+                            <p class="text-xs text-stone-500 leading-relaxed mb-4">不妥協地融入極奢日本宇治「小山園五十鈴抹茶粉」，茶香高雅、回甘不澀。中心包裹著軟 Q 的拉絲手工麻糬，雙重層次極致療癒。</p>
+                        </div>
+                        <div class="flex items-center justify-between border-t border-stone-100 pt-4 mt-auto">
+                            <span class="text-xs text-stone-400">數量選擇</span>
+                            <div class="flex items-center gap-3">
+                                <button onclick="updateQty('slice_matcha', -1)" class="w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center text-stone-600 hover:bg-stone-50 transition-all">-</button>
+                                <span id="qty-slice_matcha" class="font-bold text-sm w-4 text-center">0</span>
+                                <button onclick="updateQty('slice_matcha', 1)" class="w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center text-stone-600 hover:bg-stone-50 transition-all">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 單片純抹茶 (新加入) -->
+                <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1515688594390-b649af70d282?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover" alt="經典小山園抹茶">
+                        <span class="absolute top-3 left-3 bg-teal-800 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">小山園五十鈴 ╳ 純粹極濃</span>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <h5 class="font-bold text-lg text-brand-darkText">【經典濃綠抹茶】單片</h5>
+                                <span class="text-brand-caramel font-bold text-lg">$120</span>
+                            </div>
+                            <p class="text-xs text-stone-500 leading-relaxed mb-4">無麻糬的純粹茶香版！傾注雙倍京都宇治「小山園五十鈴抹茶粉」，將乾淨的茶香微苦與喉韻甘甜融入極致爆流乳酪，獻給抹茶狂熱者。</p>
+                        </div>
+                        <div class="flex items-center justify-between border-t border-stone-100 pt-4 mt-auto">
+                            <span class="text-xs text-stone-400">數量選擇</span>
+                            <div class="flex items-center gap-3">
+                                <button onclick="updateQty('slice_matcha_pure', -1)" class="w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center text-stone-600 hover:bg-stone-50 transition-all">-</button>
+                                <span id="qty-slice_matcha_pure" class="font-bold text-sm w-4 text-center">0</span>
+                                <button onclick="updateQty('slice_matcha_pure', 1)" class="w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center text-stone-600 hover:bg-stone-50 transition-all">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 單片巧克力 -->
+                <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover" alt="比利時苦甜巧克力">
+                        <span class="absolute top-3 left-3 bg-amber-900 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">法國法芙娜 70%</span>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <h5 class="font-bold text-lg text-brand-darkText">【苦甜可可】單片</h5>
+                                <span class="text-brand-caramel font-bold text-lg">$125</span>
+                            </div>
+                            <p class="text-xs text-stone-500 leading-relaxed mb-4">選用法國頂級 70% 法芙娜可可，與雙乳酪低溫完美融合，質地綿密如同松露生巧克力，大人味的不甜膩極致首選。</p>
+                        </div>
+                        <div class="flex items-center justify-between border-t border-stone-100 pt-4 mt-auto">
+                            <span class="text-xs text-stone-400">數量選擇</span>
+                            <div class="flex items-center gap-3">
+                                <button onclick="updateQty('slice_cocoa', -1)" class="w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center text-stone-600 hover:bg-stone-50 transition-all">-</button>
+                                <span id="qty-slice_cocoa" class="font-bold text-sm w-4 text-center">0</span>
+                                <button onclick="updateQty('slice_cocoa', 1)" class="w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center text-stone-600 hover:bg-stone-50 transition-all">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 單片開心果 (新加入) -->
+                <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1626803775151-61d756612f97?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover" alt="西西里開心果巴斯克">
+                        <span class="absolute top-3 left-3 bg-lime-700 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">西西里 100% 頂級純醬</span>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <h5 class="font-bold text-lg text-brand-darkText">【西西里開心果】單片</h5>
+                                <span class="text-brand-caramel font-bold text-lg">$140</span>
+                            </div>
+                            <p class="text-xs text-stone-500 leading-relaxed mb-4">重磅灌注義大利西西里 100% 頂級純開心果醬。帶有濃郁獨特的烘焙堅果香氣與起司完美乳化，呈現極致奢華的微綠醇厚口感。</p>
+                        </div>
+                        <div class="flex items-center justify-between border-t border-stone-100 pt-4 mt-auto">
+                            <span class="text-xs text-stone-400">數量選擇</span>
+                            <div class="flex items-center gap-3">
+                                <button onclick="updateQty('slice_pistachio', -1)" class="w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center text-stone-600 hover:bg-stone-50 transition-all">-</button>
+                                <span id="qty-slice_pistachio" class="font-bold text-sm w-4 text-center">0</span>
+                                <button onclick="updateQty('slice_pistachio', 1)" class="w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center text-stone-600 hover:bg-stone-50 transition-all">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 商品分類二：精裝整顆六吋 -->
+        <div class="mb-14">
+            <div class="border-l-4 border-brand-caramel pl-3 mb-6">
+                <h4 class="font-serif font-bold text-xl">🎂 豪華整顆六吋預訂區（分享、慶生首選）</h4>
+                <p class="text-xs text-stone-500 mt-1">極致濃香，適合與好友、家人過癮分享，均附精美提盒與牛皮提袋</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 六吋原味 -->
+                <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
+                    <div class="p-6">
+                        <span class="text-[10px] font-bold text-brand-caramel bg-brand-caramel/10 px-2 py-0.5 rounded tracking-wider uppercase">Classic Choice</span>
+                        <h5 class="font-bold text-lg text-brand-darkText mt-2">【經典原味巴斯克】完整六吋</h5>
+                        <p class="text-xs text-stone-500 mt-2 leading-relaxed">完整呈現北海道 LUXE 與澳洲經典乾酪的極濃奶香。搭配宜蘭放牧蛋的純厚口感，生日、聚餐或個人大滿足的不二選擇。</p>
+                        <div class="text-brand-caramel font-serif font-bold text-xl mt-4">NT$ 580</div>
+                    </div>
+                    <div class="p-6 bg-stone-50 border-t border-stone-100 flex items-center justify-between">
+                        <span class="text-xs text-stone-400">預訂數量</span>
+                        <div class="flex items-center gap-3">
+                            <button onclick="updateQty('whole_orig', -1)" class="w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center bg-white text-stone-600 hover:bg-stone-50 transition-all">-</button>
+                            <span id="qty-whole_orig" class="font-bold text-sm w-4 text-center">0</span>
+                            <button onclick="updateQty('whole_orig', 1)" class="w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center bg-white text-stone-600 hover:bg-stone-50 transition-all">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 六吋抹茶麻糬 -->
+                <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
+                    <div class="p-6">
+                        <span class="text-[10px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded tracking-wider uppercase">Matcha Lovers</span>
+                        <h5 class="font-bold text-lg text-brand-darkText mt-2">【小山園抹茶麻糬】完整六吋</h5>
+                        <p class="text-xs text-stone-500 mt-2 leading-relaxed">重磅堆疊京都宇治小山園抹茶粉，濃郁抹香交織內層拉絲的手作白玉麻糬，每一口都是驚艷無比的雙重日系和風體驗。</p>
+                        <div class="text-brand-caramel font-serif font-bold text-xl mt-4">NT$ 680</div>
+                    </div>
+                    <div class="p-6 bg-stone-50 border-t border-stone-100 flex items-center justify-between">
+                        <span class="text-xs text-stone-400">預訂數量</span>
+                        <div class="flex items-center gap-3">
+                            <button onclick="updateQty('whole_matcha', -1)" class="w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center bg-white text-stone-600 hover:bg-stone-50 transition-all">-</button>
+                            <span id="qty-whole_matcha" class="font-bold text-sm w-4 text-center">0</span>
+                            <button onclick="updateQty('whole_matcha', 1)" class="w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center bg-white text-stone-600 hover:bg-stone-50 transition-all">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 六吋純抹茶 (新加入) -->
+                <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
+                    <div class="p-6">
+                        <span class="text-[10px] font-bold text-teal-800 bg-teal-50 px-2 py-0.5 rounded tracking-wider uppercase">Pure Matcha Spirit</span>
+                        <h5 class="font-bold text-lg text-brand-darkText mt-2">【經典濃綠抹茶】完整六吋</h5>
+                        <p class="text-xs text-stone-500 mt-2 leading-relaxed">無麻糬純粹茶享版。極限厚實的小山園五十鈴抹茶苦甘回甘，流心質地極其濃郁，最推薦給純正抹茶靈魂的鑑賞家。</p>
+                        <div class="text-brand-caramel font-serif font-bold text-xl mt-4">NT$ 620</div>
+                    </div>
+                    <div class="p-6 bg-stone-50 border-t border-stone-100 flex items-center justify-between">
+                        <span class="text-xs text-stone-400">預訂數量</span>
+                        <div class="flex items-center gap-3">
+                            <button onclick="updateQty('whole_matcha_pure', -1)" class="w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center bg-white text-stone-600 hover:bg-stone-50 transition-all">-</button>
+                            <span id="qty-whole_matcha_pure" class="font-bold text-sm w-4 text-center">0</span>
+                            <button onclick="updateQty('whole_matcha_pure', 1)" class="w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center bg-white text-stone-600 hover:bg-stone-50 transition-all">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 六吋巧克力 -->
+                <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
+                    <div class="p-6">
+                        <span class="text-[10px] font-bold text-amber-900 bg-amber-50 px-2 py-0.5 rounded tracking-wider uppercase">Rich Cocoa</span>
+                        <h5 class="font-bold text-lg text-brand-darkText mt-2">【法芙娜 70% 苦甜可可】完整六吋</h5>
+                        <p class="text-xs text-stone-500 mt-2 leading-relaxed">70% 法國頂級法芙娜巧克力與重乳酪的低溫熟成融洽，濃郁如頂級松露蛋糕般的濕潤口感。高雅、不甜、入口即化。</p>
+                        <div class="text-brand-caramel font-serif font-bold text-xl mt-4">NT$ 650</div>
+                    </div>
+                    <div class="p-6 bg-stone-50 border-t border-stone-100 flex items-center justify-between">
+                        <span class="text-xs text-stone-400">預訂數量</span>
+                        <div class="flex items-center gap-3">
+                            <button onclick="updateQty('whole_cocoa', -1)" class="w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center bg-white text-stone-600 hover:bg-stone-50 transition-all">-</button>
+                            <span id="qty-whole_cocoa" class="font-bold text-sm w-4 text-center">0</span>
+                            <button onclick="updateQty('whole_cocoa', 1)" class="w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center bg-white text-stone-600 hover:bg-stone-50 transition-all">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 六吋開心果 (新加入) -->
+                <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
+                    <div class="p-6">
+                        <span class="text-[10px] font-bold text-lime-800 bg-lime-50 px-2 py-0.5 rounded tracking-wider uppercase">Luxury Pistachio</span>
+                        <h5 class="font-bold text-lg text-brand-darkText mt-2">【西西里開心果】完整六吋</h5>
+                        <p class="text-xs text-stone-500 mt-2 leading-relaxed">奢侈整顆注入義大利頂級 100% 開心果醬，細緻堅果芬芳融進北海道重乳酪中，呈現絲滑香郁的奢華體驗，老饕慶生首選。</p>
+                        <div class="text-brand-caramel font-serif font-bold text-xl mt-4">NT$ 720</div>
+                    </div>
+                    <div class="p-6 bg-stone-50 border-t border-stone-100 flex items-center justify-between">
+                        <span class="text-xs text-stone-400">預訂數量</span>
+                        <div class="flex items-center gap-3">
+                            <button onclick="updateQty('whole_pistachio', -1)" class="w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center bg-white text-stone-600 hover:bg-stone-50 transition-all">-</button>
+                            <span id="qty-whole_pistachio" class="font-bold text-sm w-4 text-center">0</span>
+                            <button onclick="updateQty('whole_pistachio', 1)" class="w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center bg-white text-stone-600 hover:bg-stone-50 transition-all">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 即時購物車計算明細面板 -->
+        <div class="bg-white border-2 border-brand-sage/20 rounded-2xl p-6 md:p-8 shadow-md max-w-2xl mx-auto mt-16">
+            <h4 class="font-serif font-bold text-xl text-center text-brand-darkText border-b border-stone-100 pb-4 mb-4 flex items-center justify-center gap-2">
+                <i class="fa-solid fa-cart-shopping text-brand-sage"></i> 您的預約小計明細
+            </h4>
+            
+            <div id="cart-empty-message" class="text-center py-6 text-stone-400 text-sm">
+                目前尚未選購商品，快在上方點選數量吧！
+            </div>
+            
+            <div id="cart-items-list" class="space-y-3 hidden">
+                <!-- JS 動態生成明細 -->
+            </div>
+
+            <div class="border-t border-stone-100 mt-4 pt-4 flex justify-between items-center font-bold text-lg text-brand-darkText">
+                <span>預估結帳總額：</span>
+                <span class="text-brand-caramel font-serif text-2.5xl">NT$ <span id="cart-total">0</span></span>
+            </div>
+
+            <!-- 自取聲明 -->
+            <div class="bg-brand-accent/30 rounded-lg p-4 text-xs text-stone-600 mt-6 leading-relaxed space-y-1">
+                <p class="font-bold text-brand-sage"><i class="fa-solid fa-location-dot"></i> 自取取貨點與注意事項：</p>
+                <p>1. 取貨地點：<strong>「拾光荏苒」輕食咖啡廳門市</strong>（宜蘭市女中路三段）</p>
+                <p>2. 因為每日手工新鮮限量製作，送出表單後，我們會以簡訊或 Line 確認訂購狀態才算訂單成功。</p>
+            </div>
+
+            <button onclick="submitPreorder()" class="w-full py-4 bg-brand-sage hover:bg-opacity-95 text-white font-bold rounded-lg tracking-wider transition-all mt-6 shadow flex items-center justify-center gap-2 text-base">
+                確定預約，前往填寫自取資料 <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- 自取流程與地圖區 -->
+    <section id="pickup-section" class="py-20 px-6 bg-white border-t border-stone-200">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <p class="text-brand-caramel text-xs font-bold tracking-widest uppercase mb-2">Location & Steps</p>
+                <h3 class="text-3xl font-serif font-bold tracking-wide">💡 預購自取３大步驟</h3>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="flex flex-col items-center gap-2">
+                    <div class="w-12 h-12 rounded-full bg-brand-accent text-brand-sage flex items-center justify-center font-serif text-lg font-bold shadow-inner">1</div>
+                    <h5 class="font-bold text-base mt-2">線上送出預購</h5>
+                    <p class="text-stone-500 text-xs leading-relaxed max-w-xs">在本官網點擊確認後，將前往 Google 表單填寫您要在「拾光荏苒」自取的日期與聯絡手機。</p>
+                </div>
+                <div class="flex flex-col items-center gap-2">
+                    <div class="w-12 h-12 rounded-full bg-brand-accent text-brand-sage flex items-center justify-center font-serif text-lg font-bold shadow-inner">2</div>
+                    <h5 class="font-bold text-base mt-2">簡訊/Line 訂單確認</h5>
+                    <p class="text-stone-500 text-xs leading-relaxed max-w-xs">我們在收到表單後，將於 24 小時內與您聯繫確認商品數量與自取日期，收到確認即預定成功。</p>
+                </div>
+                <div class="flex flex-col items-center gap-2">
+                    <div class="w-12 h-12 rounded-full bg-brand-accent text-brand-sage flex items-center justify-center font-serif text-lg font-bold shadow-inner">3</div>
+                    <h5 class="font-bold text-base mt-2">店內取貨付款</h5>
+                    <p class="text-stone-500 text-xs leading-relaxed max-w-xs">依預定時間前往宜蘭「拾光荏苒」門市，現場領取您美味、慢烘熟成的手作巴斯克！</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 頁尾 -->
+    <footer class="bg-brand-darkText text-stone-400 py-12 px-6 border-t border-stone-800 text-xs text-center md:text-left">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div>
+                <h5 class="text-white font-serif font-bold text-sm tracking-wide mb-2">拾光荏苒 ╳ 焙刻時光 巴斯克蛋糕合作</h5>
+                <p class="text-stone-500 leading-relaxed max-w-md">本網頁為精品烘培「焙刻時光」與宜蘭最強帕尼尼「拾光荏苒」之聯名自取預約官網。所有巴斯克每日限量新鮮手工焙烤配送。</p>
+            </div>
+            <div class="text-stone-500 md:text-right">
+                <p>自取地址：宜蘭市女中路三段「拾光荏苒」咖啡門市</p>
+                <p class="mt-1">© 2026 焙刻時光 & 拾光荏苒. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- ========================================== -->
+    <!--  SETTINGS MODAL (網頁設定面板 - 連接Google表單用) -->
+    <!-- ========================================== -->
+    <div id="config-modal" class="fixed inset-0 bg-black/60 z-50 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full shadow-2xl border border-stone-200 overflow-hidden transform transition-all duration-300">
+            <div class="bg-brand-sage p-6 text-white flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-gears text-xl"></i>
+                    <div>
+                        <h4 class="font-bold font-serif text-base">⚙️ 巴斯克預購網頁設定</h4>
+                        <p class="text-[10px] text-stone-200 font-light mt-0.5">請在此輸入您的 Google 表單連結</p>
+                    </div>
+                </div>
+                <button onclick="toggleConfigModal()" class="text-white/80 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <div class="p-6 flex flex-col gap-5">
+                <div class="flex flex-col gap-2">
+                    <label class="text-xs font-bold text-stone-700">1. Google 表單「回覆/預覽」網址</label>
+                    <p class="text-[10px] text-stone-400 leading-normal">請貼上您在 Google 雲端產生表單後，點擊「傳送」 ➜ 「複製連結 (URL)」所得到的完整網址。</p>
+                    <input type="url" id="google-form-url" placeholder="https://docs.google.com/forms/d/e/.../viewform" class="w-full bg-stone-50 border border-stone-300 rounded-lg p-3 text-xs focus:outline-none focus:border-brand-sage focus:bg-white transition-all">
+                </div>
+
+                <div class="bg-emerald-50 border border-emerald-200 rounded-lg p-3 text-[11px] leading-relaxed text-emerald-800">
+                    <p class="font-bold mb-1"><i class="fa-solid fa-circle-check"></i> 免寫程式碼，無痛對接！</p>
+                    我們使用本地瀏覽器儲存技術。當你在這裡儲存連結後，網頁的所有「預約」按鈕就會自動指向這份表單。客人可以先在網頁看好總價、挑好口味，再過去表單中填聯絡人與取貨日期！
+                </div>
+
+                <div class="flex gap-3 mt-2">
+                    <button onclick="toggleConfigModal()" class="flex-1 py-2.5 bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold rounded-lg text-xs transition-all">取消</button>
+                    <button onclick="saveConfig()" class="flex-1 py-2.5 bg-brand-caramel hover:bg-opacity-90 text-white font-bold rounded-lg text-xs transition-all">儲存網頁設定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 訊息提示 (Toast) -->
+    <div id="toast" class="fixed bottom-6 right-6 bg-brand-sage text-white text-sm font-medium px-5 py-3 rounded-lg shadow-lg opacity-0 pointer-events-none transform translate-y-3 transition-all duration-300 z-50 flex items-center gap-2">
+        <i class="fa-solid fa-circle-check"></i> <span id="toast-message">設定成功！</span>
+    </div>
+
+
+    <!-- ========================================== -->
+    <!--            FRONT-END JAVASCRIPT            -->
+    <!-- ========================================== -->
+    <script>
+        // 商品定價矩陣 (新增開心果與純抹茶口味)
+        const products = {
+            slice_orig: { name: '【原味經典】單片', price: 110, qty: 0 },
+            slice_matcha: { name: '【抹茶麻糬】單片', price: 130, qty: 0 },
+            slice_matcha_pure: { name: '【經典濃綠抹茶】單片', price: 120, qty: 0 },
+            slice_cocoa: { name: '【苦甜可可】單片', price: 125, qty: 0 },
+            slice_pistachio: { name: '【西西里開心果】單片', price: 140, qty: 0 },
+            whole_orig: { name: '【經典原味】完整六吋', price: 580, qty: 0 },
+            whole_matcha: { name: '【抹茶麻糬】完整六吋', price: 680, qty: 0 },
+            whole_matcha_pure: { name: '【經典濃綠抹茶】完整六吋', price: 620, qty: 0 },
+            whole_cocoa: { name: '【苦甜可可】完整六吋', price: 650, qty: 0 },
+            whole_pistachio: { name: '【西西里開心果】完整六吋', price: 720, qty: 0 },
+        };
+
+        // 頁面初始化
+        window.addEventListener('load', () => {
+            // 讀取已經儲存的 Google Form 網址
+            const savedUrl = localStorage.getItem('basque_google_form_url');
+            if (savedUrl) {
+                document.getElementById('google-form-url').value = savedUrl;
+            }
+        });
+
+        // 打開或關閉設定彈窗
+        function toggleConfigModal() {
+            const modal = document.getElementById('config-modal');
+            modal.classList.toggle('hidden');
+        }
+
+        // 儲存 Google 表單連結
+        function saveConfig() {
+            const urlInput = document.getElementById('google-form-url').value.trim();
+            if (urlInput) {
+                localStorage.setItem('basque_google_form_url', urlInput);
+                showToast('📋 Google 表單連結儲存成功！');
+                toggleConfigModal();
+            } else {
+                localStorage.removeItem('basque_google_form_url');
+                showToast('⚠️ 已清除 Google 表單連結。');
+                toggleConfigModal();
+            }
+        }
+
+        // 更新購物車商品數量與重新算帳
+        function updateQty(id, change) {
+            const product = products[id];
+            if (!product) return;
+
+            let newQty = product.qty + change;
+            if (newQty < 0) newQty = 0;
+            product.qty = newQty;
+
+            // 更新網頁上的數量標籤
+            document.getElementById(`qty-${id}`).innerText = newQty;
+
+            // 重新渲染計算明細
+            recalculateCart();
+        }
+
+        // 重新計算購物車小計與總額
+        function recalculateCart() {
+            const listContainer = document.getElementById('cart-items-list');
+            const emptyMsg = document.getElementById('cart-empty-message');
+            const totalSpan = document.getElementById('cart-total');
+
+            listContainer.innerHTML = '';
+            let hasItems = false;
+            let total = 0;
+
+            for (const key in products) {
+                const item = products[key];
+                if (item.qty > 0) {
+                    hasItems = true;
+                    const subtotal = item.price * item.qty;
+                    total += subtotal;
+
+                    // 建立一筆明細項目 HTML
+                    const row = document.createElement('div');
+                    row.className = "flex justify-between items-center text-xs text-stone-600 border-b border-stone-100 pb-2";
+                    row.innerHTML = `
+                        <span class="font-medium text-brand-darkText">${item.name} <span class="text-stone-400 font-mono">x ${item.qty}</span></span>
+                        <span class="font-bold text-stone-800">NT$ ${subtotal}</span>
+                    `;
+                    listContainer.appendChild(row);
+                }
+            }
+
+            // 控制明細列表與空購物車訊息的顯示
+            if (hasItems) {
+                listContainer.classList.remove('hidden');
+                emptyMsg.classList.add('hidden');
+            } else {
+                listContainer.classList.add('hidden');
+                emptyMsg.classList.remove('hidden');
+            }
+
+            totalSpan.innerText = total;
+        }
+
+        // 預約按鈕送出 (跳轉到 Google 表單)
+        function submitPreorder() {
+            const savedUrl = localStorage.getItem('basque_google_form_url');
+            
+            if (!savedUrl) {
+                // 如果沒有設定表單連結，跳出警告並打開設定視窗
+                showToast('⚠️ 請先點擊右上角設定您的 Google 表單連結！');
+                setTimeout(() => {
+                    toggleConfigModal();
+                }, 1000);
+                return;
+            }
+
+            // 計算是否選了商品
+            let hasItems = false;
+            for (const key in products) {
+                if (products[key].qty > 0) hasItems = true;
+            }
+
+            if (!hasItems) {
+                showToast('⚠️ 您尚未選取任何巴斯克口味與數量喔！');
+                return;
+            }
+
+            // 成功跳轉
+            showToast('🚀 正在為您導向 Google 預購表單...');
+            setTimeout(() => {
+                window.open(savedUrl, '_blank');
+            }, 1200);
+        }
+
+        // 顯示 Toast 提示
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.innerText = message;
+            
+            toast.className = "fixed bottom-6 right-6 bg-brand-sage text-white text-sm font-medium px-5 py-3 rounded-lg shadow-lg opacity-100 transform translate-y-0 transition-all duration-300 z-50 flex items-center gap-2";
+            
+            setTimeout(() => {
+                toast.className = "fixed bottom-6 right-6 bg-brand-sage text-white text-sm font-medium px-5 py-3 rounded-lg shadow-lg opacity-0 pointer-events-none transform translate-y-3 transition-all duration-300 z-50 flex items-center gap-2";
+            }, 3500);
+        }
+    </script>
+</body>
+</html>
