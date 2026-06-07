@@ -45,6 +45,9 @@
 </head>
 <body class="bg-brand-warmBg text-brand-darkText font-sans selection:bg-brand-sage selection:text-white">
 
+    <!-- 隱藏的 iframe：用來當作表單提交的隱形緩衝墊，避免頁面跳轉 -->
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="handleIframeResponse()"></iframe>
+
     <nav class="bg-white/80 backdrop-blur-md border-b border-stone-200 py-4 px-6 sticky top-0 z-40 shadow-sm">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
             <div class="flex items-center gap-3">
@@ -139,6 +142,7 @@
                 <p class="text-xs text-stone-500 mt-1">適合獨享的午後，給自己一入剛剛好的甜蜜儀式感</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 原味單片 -->
                 <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
                     <div class="h-48 overflow-hidden relative">
                         <img src="https://tiffinandteaofficial.com/wp-content/uploads/2020/06/281122_5.jpg" class="w-full h-full object-cover" alt="經典原味巴斯克">
@@ -162,6 +166,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- 抹茶麻糬單片 -->
                 <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
                     <div class="h-48 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover" alt="靜岡五十鈴抹茶">
@@ -185,6 +190,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- 濃綠抹茶單片 -->
                 <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
                     <div class="h-48 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1515688594390-b649af70d282?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover" alt="經典小山園抹茶">
@@ -208,6 +214,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- 苦甜可可單片 -->
                 <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
                     <div class="h-48 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover" alt="比利時苦甜巧克力">
@@ -231,6 +238,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- 開心果單片 -->
                 <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
                     <div class="h-48 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1626803775151-61d756612f97?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover" alt="西西里開心果巴斯克">
@@ -263,6 +271,7 @@
                 <p class="text-xs text-stone-500 mt-1">極致濃香，適合與好友、家人過癮分享，均附精美提盒與牛皮提袋</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 原味六吋 -->
                 <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
                     <div class="p-6">
                         <span class="text-[10px] font-bold text-brand-caramel bg-brand-caramel/10 px-2 py-0.5 rounded tracking-wider uppercase">Classic Choice</span>
@@ -279,6 +288,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- 抹茶麻糬六吋 -->
                 <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
                     <div class="p-6">
                         <span class="text-[10px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded tracking-wider uppercase">Matcha Lovers</span>
@@ -295,6 +305,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- 濃綠抹茶六吋 -->
                 <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
                     <div class="p-6">
                         <span class="text-[10px] font-bold text-teal-800 bg-teal-50 px-2 py-0.5 rounded tracking-wider uppercase">Pure Matcha Spirit</span>
@@ -311,6 +322,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- 可可六吋 -->
                 <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
                     <div class="p-6">
                         <span class="text-[10px] font-bold text-amber-900 bg-amber-50 px-2 py-0.5 rounded tracking-wider uppercase">Rich Cocoa</span>
@@ -327,6 +339,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- 開心果六吋 -->
                 <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
                     <div class="p-6">
                         <span class="text-[10px] font-bold text-lime-800 bg-lime-50 px-2 py-0.5 rounded tracking-wider uppercase">Luxury Pistachio</span>
@@ -346,7 +359,8 @@
             </div>
         </div>
 
-        <form id="preorder-form" method="POST" action="" onsubmit="return validateAndSubmit(event)" class="bg-white border-2 border-brand-sage/20 rounded-2xl p-6 md:p-8 shadow-md max-w-2xl mx-auto mt-16">
+        <!-- 優化目標：綁定 target 到隱藏 iframe，實現無跳轉傳送 -->
+        <form id="preorder-form" method="POST" action="" target="hidden_iframe" onsubmit="return validateAndSubmit(event)" class="bg-white border-2 border-brand-sage/20 rounded-2xl p-6 md:p-8 shadow-md max-w-2xl mx-auto mt-16">
             <h4 class="font-serif font-bold text-xl text-center text-brand-darkText border-b border-stone-100 pb-4 mb-6 flex items-center justify-center gap-2">
                 <i class="fa-solid fa-file-invoice text-brand-sage"></i> 填寫自取預約資料
             </h4>
@@ -384,7 +398,7 @@
                 <p>2. 因為每日手工新鮮限量製作，送出表單後，請靜候後台確認登記。</p>
             </div>
             <button type="submit" id="btn-submit" class="w-full py-4 bg-brand-sage hover:bg-opacity-95 text-white font-bold rounded-lg tracking-wider transition-all mt-6 shadow flex items-center justify-center gap-2 text-base">
-                <span id="btn-text">確認無誤，直接送出預約</span> <i class="fa-solid fa-paper-plane"></i>
+                <span id="btn-text">確認無誤，直接送出預約</span> <i class="fa-solid fa-paper-plane" id="btn-icon"></i>
             </button>
         </form>
     </section>
@@ -428,6 +442,7 @@
         </div>
     </footer>
 
+    <!-- 設定視窗 -->
     <div id="config-modal" class="fixed inset-0 bg-black/60 z-50 backdrop-blur-sm hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-2xl max-w-md w-full shadow-2xl border border-stone-200 overflow-hidden transform transition-all duration-300">
             <div class="bg-brand-sage p-6 text-white flex justify-between items-center">
@@ -454,6 +469,25 @@
         </div>
     </div>
 
+    <!-- ✨ 全新質感高級通知彈窗 (Success Modal) -->
+    <div id="success-modal" class="fixed inset-0 bg-black/50 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-sm w-full shadow-2xl p-6 text-center transform transition-all border border-stone-100 flex flex-col items-center gap-4">
+            <div class="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-3xl animate-bounce">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <div>
+                <h4 class="font-serif font-bold text-xl text-brand-darkText">預約登記成功</h4>
+                <p class="text-stone-500 text-xs mt-2 leading-relaxed">
+                    您的美味巴斯克已成功寫入系統！<br>
+                    請於預約當日前往<strong>「拾光荏苒」</strong>取貨付款。
+                </p>
+            </div>
+            <button type="button" onclick="closeSuccessModal()" class="w-full py-3 bg-brand-sage hover:bg-opacity-95 text-white text-xs font-bold tracking-widest rounded-lg transition-all shadow mt-2">
+                太棒了，我知道了
+            </button>
+        </div>
+    </div>
+
     <div id="toast" class="fixed bottom-6 right-6 bg-brand-sage text-white text-sm font-medium px-5 py-3 rounded-lg shadow-lg opacity-0 pointer-events-none transform translate-y-3 transition-all duration-300 z-50 flex items-center gap-2">
         <i class="fa-solid fa-circle-check"></i> <span id="toast-message">設定成功！</span>
     </div>
@@ -471,6 +505,8 @@
             whole_cocoa: { name: '【苦甜可可】完整六吋', price: 650, qty: 0 },
             whole_pistachio: { name: '【西西里開心果】完整六吋', price: 720, qty: 0 },
         };
+
+        let isSubmitting = false;
 
         window.addEventListener('load', () => {
             const savedUrl = localStorage.getItem('basque_google_form_url');
@@ -534,12 +570,11 @@
                 emptyMsg.classList.add('hidden');
             } else {
                 listContainer.classList.add('hidden');
-                emptyMsg.classList.remove('hidden');
+                emptyMsg.className = "text-center py-6 text-stone-400 text-sm";
             }
             totalSpan.innerText = total;
         }
 
-        // 打掉重練的核心提交邏輯
         function validateAndSubmit(event) {
             const apiUrl = localStorage.getItem('basque_google_form_url');
             if (!apiUrl) {
@@ -564,14 +599,49 @@
                 return false;
             }
 
-            // 在真正提交前，把計算好的資料塞進隱藏的 input 欄位中
             document.getElementById('hidden-items').value = orderItems.join('、');
             document.getElementById('hidden-total').value = totalAmount;
 
-            // 按鈕狀態微調
-            const btnText = document.getElementById('btn-text');
-            btnText.innerText = "正在傳送預約...";
+            // 進入傳送狀態，鎖定按鈕
+            isSubmitting = true;
+            document.getElementById('btn-submit').disabled = true;
+            document.getElementById('btn-text').innerText = "正在為您連線系統登記中...";
+            document.getElementById('btn-icon').className = "fa-solid fa-spinner animate-spin text-white";
             return true;
+        }
+
+        // 當隱藏的 iframe 收到 Google 的回應後，會觸發這個函式
+        function handleIframeResponse() {
+            if (isSubmitting) {
+                isSubmitting = false;
+                
+                // 恢復按鈕原本的樣式
+                const btnSubmit = document.getElementById('btn-submit');
+                btnSubmit.disabled = false;
+                document.getElementById('btn-text').innerText = "確認無誤，直接送出預約";
+                document.getElementById('btn-icon').className = "fa-solid fa-paper-plane";
+
+                // 🎉 秀出極高質感的自訂毛玻璃彈窗通知
+                document.getElementById('success-modal').classList.remove('hidden');
+            }
+        }
+
+        // 關閉成功通知視窗並重設整張表單
+        function closeSuccessModal() {
+            document.getElementById('success-modal').classList.add('hidden');
+            
+            // 1. 重填使用者輸入框
+            document.getElementById('preorder-form').reset();
+            
+            // 2. 購物車資料全部回歸 0 
+            for (const key in products) {
+                products[key].qty = 0;
+                const qtyEl = document.getElementById(`qty-${key}`);
+                if (qtyEl) qtyEl.innerText = "0";
+            }
+            
+            // 3. 重新整理計算購物車顯示狀態
+            recalculateCart();
         }
 
         function showToast(message) {
