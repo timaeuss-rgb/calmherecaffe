@@ -45,7 +45,6 @@
 </head>
 <body class="bg-brand-warmBg text-brand-darkText font-sans selection:bg-brand-sage selection:text-white">
 
-    <!-- 隱藏的 iframe：用來當作表單提交的隱形緩衝墊，避免頁面跳轉 -->
     <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="handleIframeResponse()"></iframe>
 
     <nav class="bg-white/80 backdrop-blur-md border-b border-stone-200 py-4 px-6 sticky top-0 z-40 shadow-sm">
@@ -61,7 +60,7 @@
                 <a href="#products-section" class="hidden md:inline-block text-xs font-medium tracking-wider hover:text-brand-caramel transition-all">手作風味</a>
                 <a href="#ingredients-section" class="hidden md:inline-block text-xs font-medium tracking-wider hover:text-brand-caramel transition-all">頂級原料</a>
                 <a href="#pickup-section" class="hidden md:inline-block text-xs font-medium tracking-wider hover:text-brand-caramel transition-all">自取須知</a>
-                <button onclick="toggleConfigModal()" class="w-8 h-8 rounded-full bg-stone-100 hover:bg-stone-200 flex items-center justify-center text-stone-600 transition-all" title="網頁設定 (連結您的Google試算表)">
+                <button onclick="toggleConfigModal()" class="w-8 h-8 rounded-full bg-stone-100 hover:bg-stone-200 flex items-center justify-center text-stone-600 transition-all" title="網頁設定">
                     <i class="fa-solid fa-gear"></i>
                 </button>
                 <a href="#products-section" class="bg-brand-sage hover:bg-opacity-90 text-white text-xs px-4 py-2 rounded font-medium tracking-wider transition-all">立刻預訂</a>
@@ -86,48 +85,38 @@
         </div>
     </header>
 
-    <section class="py-16 px-6 bg-white border-b border-stone-200">
-        <div class="max-w-4xl mx-auto text-center">
-            <p class="text-brand-caramel text-xs font-bold tracking-widest uppercase mb-2">The Collaboration</p>
-            <h3 class="text-2xl md:text-3.5xl font-serif font-bold tracking-wide">焙刻時光 ╳ 精選名店</h3>
-            <p class="text-stone-600 text-sm mt-4 leading-relaxed max-w-2xl mx-auto">
-                我們始終相信，好的鹹食與極致的甜點，是美好生活的一體兩面。這次，我們將慢烘熟成的手作巴斯克直送雙門市，讓您在品嚐完美味之後，能直接在店內帶走一份令人流連忘返的極致甜蜜。
-            </p>
-        </div>
-    </section>
-
     <section id="ingredients-section" class="py-20 px-6 bg-brand-accent/50">
         <div class="max-w-5xl mx-auto">
             <div class="text-center mb-12">
                 <p class="text-brand-sage text-xs font-bold tracking-widest uppercase mb-2">Our Ingredients</p>
                 <h3 class="text-3xl font-serif font-bold tracking-wide text-brand-darkText">🌿 頂級奢華原料宣言</h3>
-                <p class="text-stone-500 text-xs mt-2">毫不妥協的嚴選食材，是我們對美味唯一的堅持</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div class="bg-white p-6 rounded-xl border border-stone-200 shadow-sm flex flex-col gap-3">
                     <div class="w-10 h-10 rounded-full bg-brand-sage/10 text-brand-sage flex items-center justify-center text-lg"><i class="fa-solid fa-cow"></i></div>
                     <h4 class="font-bold text-base">北海道 LUXE 乳酪雙重奏</h4>
-                    <p class="text-stone-600 text-xs leading-relaxed">融合頂級北海道 LUXE 奶油乳酪與澳洲經典卡夫乾酪，經過精準比例調配，創造出前所未有的極致絲滑奶香。</p>
+                    <p class="text-stone-600 text-xs leading-relaxed">融合頂級北海道 LUXE 奶油乳酪與澳洲經典乾酪，創造出前所未有的極致絲滑奶香。</p>
                 </div>
                 <div class="bg-white p-6 rounded-xl border border-stone-200 shadow-sm flex flex-col gap-3">
                     <div class="w-10 h-10 rounded-full bg-brand-caramel/10 text-brand-caramel flex items-center justify-center text-lg"><i class="fa-solid fa-egg"></i></div>
                     <h4 class="font-bold text-base">在地放牧快樂雞蛋</h4>
-                    <p class="text-stone-600 text-xs leading-relaxed">每日由在地產地新鮮直達！採用人道放牧的快樂母雞產出的優質鮮蛋，精緻純淨、毫無腥味。</p>
+                    <p class="text-stone-600 text-xs leading-relaxed">每日由在地產地新鮮直達！採用人道放牧母雞產出的優質鮮蛋，純淨、無腥味。</p>
                 </div>
                 <div class="bg-white p-6 rounded-xl border border-stone-200 shadow-sm flex flex-col gap-3">
                     <div class="w-10 h-10 rounded-full bg-brand-sage/10 text-brand-sage flex items-center justify-center text-lg"><i class="fa-solid fa-seedling"></i></div>
                     <h4 class="font-bold text-base">小山園五十鈴 ╳ 法芙娜</h4>
-                    <p class="text-stone-600 text-xs leading-relaxed">調味絕不將就。綠色選用京都宇治頂級「小山園五十鈴抹茶粉」；黑色則傾注法國頂級 70% 法芙娜可可，口感奢華。</p>
+                    <p class="text-stone-600 text-xs leading-relaxed">調味絕不將就。選用京都宇治頂級「小山園五十鈴抹茶粉」與法國頂級 70% 法芙娜可可。</p>
                 </div>
                 <div class="bg-white p-6 rounded-xl border border-stone-200 shadow-sm flex flex-col gap-3">
                     <div class="w-10 h-10 rounded-full bg-brand-caramel/10 text-brand-caramel flex items-center justify-center text-lg"><i class="fa-solid fa-nut"></i></div>
                     <h4 class="font-bold text-base">西西里 100% 開心果醬</h4>
-                    <p class="text-stone-600 text-xs leading-relaxed">重磅引進義大利西西里島頂級純開心果醬，極濃郁堅果香與起司完美乳化，烘焙後釋放出極致高雅的香氣。</p>
+                    <p class="text-stone-600 text-xs leading-relaxed">重磅引進義大利西西里島頂級純開心果醬，極濃郁堅果香與起司完美乳化。</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- 🍰 商品選購區：8大完整選項回歸 -->
     <section id="products-section" class="py-20 px-6 max-w-6xl mx-auto">
         <div class="text-center mb-16">
             <p class="text-brand-caramel text-xs font-bold tracking-widest uppercase mb-2">Interactive Menu</p>
@@ -135,80 +124,76 @@
             <p class="text-stone-500 text-xs mt-2">請點選加購所需的品項與數量，下方將自動為你計算預算明細</p>
         </div>
 
+        <!-- 區塊一：單片嚐鮮區 (共4款) -->
         <div class="mb-14">
             <div class="border-l-4 border-brand-sage pl-3 mb-6">
                 <h4 class="font-serif font-bold text-xl">✨ 經典單片嚐鮮區（6吋開六，切片單售）</h4>
-                <p class="text-xs text-stone-500 mt-1">適合獨享的午後，給自己一入剛剛好的甜蜜儀式感</p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- 原味單片 -->
                 <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="https://tiffinandteaofficial.com/wp-content/uploads/2020/06/281122_5.jpg" class="w-full h-full object-cover" alt="經典原味巴斯克">
-                        <span class="absolute top-3 left-3 bg-brand-sage text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">雙乳酪金牌原味</span>
-                    </div>
-                    <div class="p-6 flex-grow flex flex-col justify-between">
+                    <div class="p-5 flex-grow flex flex-col justify-between">
                         <div>
-                            <div class="flex justify-between items-center mb-2">
-                                <h5 class="font-bold text-lg text-brand-darkText">【原味經典】單片</h5>
-                                <span class="text-brand-caramel font-bold text-lg">$110</span>
-                            </div>
-                            <p class="text-xs text-stone-500 leading-relaxed mb-4">微焦外皮蘊含著迷人的焦糖微苦。內餡完美呈現北海道 LUXE 的極致乳香，與滑順流心的滋味。</p>
+                            <h5 class="font-bold text-base text-brand-darkText">【原味經典】單片</h5>
+                            <p class="text-[11px] text-stone-500 mt-2 leading-relaxed">內餡呈現北海道 LUXE 的極致乳香，滑順流心。</p>
                         </div>
-                        <div class="flex items-center justify-between border-t border-stone-100 pt-4 mt-auto">
-                            <span class="text-xs text-stone-400">數量選擇</span>
-                            <div class="flex items-center gap-3">
-                                <button type="button" onclick="updateQty('slice_orig', -1)" class="w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center text-stone-600 hover:bg-stone-50 transition-all">-</button>
+                        <div class="mt-4 border-t border-stone-100 pt-3">
+                            <div class="flex justify-between items-center mb-3"><span class="text-brand-caramel font-bold">$110</span></div>
+                            <div class="flex items-center justify-between">
+                                <button type="button" onclick="updateQty('slice_orig', -1)" class="w-7 h-7 rounded-full border border-stone-300 flex items-center justify-center">-</button>
                                 <span id="qty-slice_orig" class="font-bold text-sm w-4 text-center">0</span>
-                                <button type="button" onclick="updateQty('slice_orig', 1)" class="w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center text-stone-600 hover:bg-stone-50 transition-all">+</button>
+                                <button type="button" onclick="updateQty('slice_orig', 1)" class="w-7 h-7 rounded-full border border-stone-300 flex items-center justify-center">+</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- 抹茶麻糬單片 -->
                 <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover" alt="靜岡五十鈴抹茶">
-                        <span class="absolute top-3 left-3 bg-emerald-700 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">京都五十鈴 ╳ 白玉麻糬</span>
-                    </div>
-                    <div class="p-6 flex-grow flex flex-col justify-between">
+                    <div class="p-5 flex-grow flex flex-col justify-between">
                         <div>
-                            <div class="flex justify-between items-center mb-2">
-                                <h5 class="font-bold text-lg text-brand-darkText">【抹茶麻糬】單片</h5>
-                                <span class="text-brand-caramel font-bold text-lg">$130</span>
-                            </div>
-                            <p class="text-xs text-stone-500 leading-relaxed mb-4">不妥協地融入極奢日本宇治「小山園五十鈴抹茶粉」，茶香高雅。中心包裹著軟 Q 的拉絲手工麻糬，雙重層次極致療癒。</p>
+                            <h5 class="font-bold text-base text-brand-darkText">【抹茶麻糬】單片</h5>
+                            <p class="text-[11px] text-stone-500 mt-2 leading-relaxed">融入小山園五十鈴抹茶粉，包裹軟 Q 拉絲手工麻糬。</p>
                         </div>
-                        <div class="flex items-center justify-between border-t border-stone-100 pt-4 mt-auto">
-                            <span class="text-xs text-stone-400">數量選擇</span>
-                            <div class="flex items-center gap-3">
-                                <button type="button" onclick="updateQty('slice_matcha', -1)" class="w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center text-stone-600 hover:bg-stone-50 transition-all">-</button>
+                        <div class="mt-4 border-t border-stone-100 pt-3">
+                            <div class="flex justify-between items-center mb-3"><span class="text-brand-caramel font-bold">$130</span></div>
+                            <div class="flex items-center justify-between">
+                                <button type="button" onclick="updateQty('slice_matcha', -1)" class="w-7 h-7 rounded-full border border-stone-300 flex items-center justify-center">-</button>
                                 <span id="qty-slice_matcha" class="font-bold text-sm w-4 text-center">0</span>
-                                <button type="button" onclick="updateQty('slice_matcha', 1)" class="w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center text-stone-600 hover:bg-stone-50 transition-all">+</button>
+                                <button type="button" onclick="updateQty('slice_matcha', 1)" class="w-7 h-7 rounded-full border border-stone-300 flex items-center justify-center">+</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- 濃綠抹茶單片 -->
                 <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1515688594390-b649af70d282?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover" alt="經典小山園抹茶">
-                        <span class="absolute top-3 left-3 bg-teal-800 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">小山園五十鈴 ╳ 濃郁極致</span>
-                    </div>
-                    <div class="p-6 flex-grow flex flex-col justify-between">
+                    <div class="p-5 flex-grow flex flex-col justify-between">
                         <div>
-                            <div class="flex justify-between items-center mb-2">
-                                <h5 class="font-bold text-lg text-brand-darkText">【經典濃綠抹茶】單片</h5>
-                                <span class="text-brand-caramel font-bold text-lg">$120</span>
-                            </div>
-                            <p class="text-xs text-stone-500 leading-relaxed mb-4">無麻糬的純粹茶香版！將乾淨的茶香微苦與喉韻甘甜融入極致重乳酪，獻給抹茶狂熱者。</p>
+                            <h5 class="font-bold text-base text-brand-darkText">【經典濃綠抹茶】單片</h5>
+                            <p class="text-[11px] text-stone-500 mt-2 leading-relaxed">無麻糬純粹版！微苦與喉韻甘甜融入極致重乳酪。</p>
                         </div>
-                        <div class="flex items-center justify-between border-t border-stone-100 pt-4 mt-auto">
-                            <span class="text-xs text-stone-400">數量選擇</span>
-                            <div class="flex items-center gap-3">
-                                <button type="button" onclick="updateQty('slice_matcha_pure', -1)" class="w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center text-stone-600 hover:bg-stone-50 transition-all">-</button>
+                        <div class="mt-4 border-t border-stone-100 pt-3">
+                            <div class="flex justify-between items-center mb-3"><span class="text-brand-caramel font-bold">$120</span></div>
+                            <div class="flex items-center justify-between">
+                                <button type="button" onclick="updateQty('slice_matcha_pure', -1)" class="w-7 h-7 rounded-full border border-stone-300 flex items-center justify-center">-</button>
                                 <span id="qty-slice_matcha_pure" class="font-bold text-sm w-4 text-center">0</span>
-                                <button type="button" onclick="updateQty('slice_matcha_pure', 1)" class="w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center text-stone-600 hover:bg-stone-50 transition-all">+</button>
+                                <button type="button" onclick="updateQty('slice_matcha_pure', 1)" class="w-7 h-7 rounded-full border border-stone-300 flex items-center justify-center">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 巧克力單片 -->
+                <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
+                    <div class="p-5 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h5 class="font-bold text-base text-brand-darkText">【法芙娜巧克力】單片</h5>
+                            <p class="text-[11px] text-stone-500 mt-2 leading-relaxed">傾注法國頂級 70% 法芙娜可可，濃郁可可微苦回甘。</p>
+                        </div>
+                        <div class="mt-4 border-t border-stone-100 pt-3">
+                            <div class="flex justify-between items-center mb-3"><span class="text-brand-caramel font-bold">$120</span></div>
+                            <div class="flex items-center justify-between">
+                                <button type="button" onclick="updateQty('slice_choc', -1)" class="w-7 h-7 rounded-full border border-stone-300 flex items-center justify-center">-</button>
+                                <span id="qty-slice_choc" class="font-bold text-sm w-4 text-center">0</span>
+                                <button type="button" onclick="updateQty('slice_choc', 1)" class="w-7 h-7 rounded-full border border-stone-300 flex items-center justify-center">+</button>
                             </div>
                         </div>
                     </div>
@@ -216,67 +201,84 @@
             </div>
         </div>
 
+        <!-- 區塊二：完整六吋預訂區 (共4款) -->
         <div class="mb-14">
             <div class="border-l-4 border-brand-caramel pl-3 mb-6">
                 <h4 class="font-serif font-bold text-xl">🎂 豪華整顆六吋預訂區（分享、慶生首選）</h4>
-                <p class="text-xs text-stone-500 mt-1">極致濃香，適合與好友、家人過癮分享，均附精美提盒與牛皮提袋</p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- 原味六吋 -->
                 <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
-                    <div class="p-6">
-                        <span class="text-[10px] font-bold text-brand-caramel bg-brand-caramel/10 px-2 py-0.5 rounded tracking-wider uppercase">Classic Choice</span>
-                        <h5 class="font-bold text-lg text-brand-darkText mt-2">【經典原味巴斯克】完整六吋</h5>
-                        <p class="text-xs text-stone-500 mt-2 leading-relaxed">完整呈現北海道 LUXE 的極濃奶香。搭配優質放牧蛋的純厚口感，生日、聚餐或個人大滿足的不二選擇。</p>
-                        <div class="text-brand-caramel font-serif font-bold text-xl mt-4">NT$ 580</div>
-                    </div>
-                    <div class="p-6 bg-stone-50 border-t border-stone-100 flex items-center justify-between">
-                        <span class="text-xs text-stone-400">預訂數量</span>
-                        <div class="flex items-center gap-3">
-                            <button type="button" onclick="updateQty('whole_orig', -1)" class="w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center bg-white text-stone-600 hover:bg-stone-50 transition-all">-</button>
-                            <span id="qty-whole_orig" class="font-bold text-sm w-4 text-center">0</span>
-                            <button type="button" onclick="updateQty('whole_orig', 1)" class="w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center bg-white text-stone-600 hover:bg-stone-50 transition-all">+</button>
+                    <div class="p-5 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h5 class="font-bold text-base text-brand-darkText">【經典原味】完整六吋</h5>
+                            <p class="text-[11px] text-stone-500 mt-2 leading-relaxed">完整呈現北海道 LUXE 的極濃奶香與完美流心。</p>
+                        </div>
+                        <div class="mt-4 border-t border-stone-100 pt-3">
+                            <div class="flex justify-between items-center mb-3"><span class="text-brand-caramel font-bold">$580</span></div>
+                            <div class="flex items-center justify-between">
+                                <button type="button" onclick="updateQty('whole_orig', -1)" class="w-7 h-7 rounded-full border border-stone-300 flex items-center justify-center">-</button>
+                                <span id="qty-whole_orig" class="font-bold text-sm w-4 text-center">0</span>
+                                <button type="button" onclick="updateQty('whole_orig', 1)" class="w-7 h-7 rounded-full border border-stone-300 flex items-center justify-center">+</button>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <!-- 抹茶麻糬六吋 -->
                 <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
-                    <div class="p-6">
-                        <span class="text-[10px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded tracking-wider uppercase">Matcha Lovers</span>
-                        <h5 class="font-bold text-lg text-brand-darkText mt-2">【小山園抹茶麻糬】完整六吋</h5>
-                        <p class="text-xs text-stone-500 mt-2 leading-relaxed">重磅堆疊京都宇治小山園抹茶粉，濃郁抹香交織內層拉絲的手作白玉麻糬，每一口都是驚艷無比的雙重日系和風體驗。</p>
-                        <div class="text-brand-caramel font-serif font-bold text-xl mt-4">NT$ 680</div>
-                    </div>
-                    <div class="p-6 bg-stone-50 border-t border-stone-100 flex items-center justify-between">
-                        <span class="text-xs text-stone-400">預訂數量</span>
-                        <div class="flex items-center gap-3">
-                            <button type="button" onclick="updateQty('whole_matcha', -1)" class="w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center bg-white text-stone-600 hover:bg-stone-50 transition-all">-</button>
-                            <span id="qty-whole_matcha" class="font-bold text-sm w-4 text-center">0</span>
-                            <button type="button" onclick="updateQty('whole_matcha', 1)" class="w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center bg-white text-stone-600 hover:bg-stone-50 transition-all">+</button>
+                    <div class="p-5 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h5 class="font-bold text-base text-brand-darkText">【小山園抹茶麻糬】完整六吋</h5>
+                            <p class="text-[11px] text-stone-500 mt-2 leading-relaxed">濃郁抹香交織內層拉絲的手作白玉麻糬，絕美和風。</p>
+                        </div>
+                        <div class="mt-4 border-t border-stone-100 pt-3">
+                            <div class="flex justify-between items-center mb-3"><span class="text-brand-caramel font-bold">$680</span></div>
+                            <div class="flex items-center justify-between">
+                                <button type="button" onclick="updateQty('whole_matcha', -1)" class="w-7 h-7 rounded-full border border-stone-300 flex items-center justify-center">-</button>
+                                <span id="qty-whole_matcha" class="font-bold text-sm w-4 text-center">0</span>
+                                <button type="button" onclick="updateQty('whole_matcha', 1)" class="w-7 h-7 rounded-full border border-stone-300 flex items-center justify-center">+</button>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <!-- 濃綠抹茶六吋 -->
                 <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
-                    <div class="p-6">
-                        <span class="text-[10px] font-bold text-teal-800 bg-teal-50 px-2 py-0.5 rounded tracking-wider uppercase">Pure Matcha Spirit</span>
-                        <h5 class="font-bold text-lg text-brand-darkText mt-2">【經典濃綠抹茶】完整六吋</h5>
-                        <p class="text-xs text-stone-500 mt-2 leading-relaxed">無麻糬純粹茶享版。極限厚實的小山園五十鈴抹茶苦甘回甘，流心質地極其濃郁，最推薦給純正抹茶靈魂的鑑賞家。</p>
-                        <div class="text-brand-caramel font-serif font-bold text-xl mt-4">NT$ 620</div>
+                    <div class="p-5 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h5 class="font-bold text-base text-brand-darkText">【經典濃綠抹茶】完整六吋</h5>
+                            <p class="text-[11px] text-stone-500 mt-2 leading-relaxed">厚實小山園抹茶苦甘喉韻，流心質地極其濃郁。</p>
+                        </div>
+                        <div class="mt-4 border-t border-stone-100 pt-3">
+                            <div class="flex justify-between items-center mb-3"><span class="text-brand-caramel font-bold">$620</span></div>
+                            <div class="flex items-center justify-between">
+                                <button type="button" onclick="updateQty('whole_matcha_pure', -1)" class="w-7 h-7 rounded-full border border-stone-300 flex items-center justify-center">-</button>
+                                <span id="qty-whole_matcha_pure" class="font-bold text-sm w-4 text-center">0</span>
+                                <button type="button" onclick="updateQty('whole_matcha_pure', 1)" class="w-7 h-7 rounded-full border border-stone-300 flex items-center justify-center">+</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="p-6 bg-stone-50 border-t border-stone-100 flex items-center justify-between">
-                        <span class="text-xs text-stone-400">預訂數量</span>
-                        <div class="flex items-center gap-3">
-                            <button type="button" onclick="updateQty('whole_matcha_pure', -1)" class="w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center bg-white text-stone-600 hover:bg-stone-50 transition-all">-</button>
-                            <span id="qty-whole_matcha_pure" class="font-bold text-sm w-4 text-center">0</span>
-                            <button type="button" onclick="updateQty('whole_matcha_pure', 1)" class="w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center bg-white text-stone-600 hover:bg-stone-50 transition-all">+</button>
+                </div>
+                <!-- 開心果六吋 -->
+                <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
+                    <div class="p-5 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h5 class="font-bold text-base text-brand-darkText">【西西里開心果】完整六吋</h5>
+                            <p class="text-[11px] text-stone-500 mt-2 leading-relaxed">極致引進 100% 義大利純開心果醬，濃郁高雅堅果香。</p>
+                        </div>
+                        <div class="mt-4 border-t border-stone-100 pt-3">
+                            <div class="flex justify-between items-center mb-3"><span class="text-brand-caramel font-bold">$780</span></div>
+                            <div class="flex items-center justify-between">
+                                <button type="button" onclick="updateQty('whole_pistachio', -1)" class="w-7 h-7 rounded-full border border-stone-300 flex items-center justify-center">-</button>
+                                <span id="qty-whole_pistachio" class="font-bold text-sm w-4 text-center">0</span>
+                                <button type="button" onclick="updateQty('whole_pistachio', 1)" class="w-7 h-7 rounded-full border border-stone-300 flex items-center justify-center">+</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- ✨ 表單區塊：全新升級四組高質感欄位 -->
+        <!-- ✍️ 表單區塊（已對調地點與日期，並整合 6/19 智慧鎖定邏輯） -->
         <form id="preorder-form" method="POST" action="" target="hidden_iframe" onsubmit="return validateAndSubmit(event)" class="bg-white border-2 border-brand-sage/20 rounded-2xl p-6 md:p-8 shadow-md max-w-2xl mx-auto mt-16">
             <h4 class="font-serif font-bold text-xl text-center text-brand-darkText border-b border-stone-100 pb-4 mb-6 flex items-center justify-center gap-2">
                 <i class="fa-solid fa-file-invoice text-brand-sage"></i> 填寫自取預約資料
@@ -295,13 +297,34 @@
                     </div>
                 </div>
 
-                <!-- 🆕 電子信箱 Email -->
+                <!-- 電子信箱 Email -->
                 <div>
                     <label class="block text-xs font-bold text-stone-700 mb-1">電子信箱 Email <span class="text-red-500">*</span></label>
                     <input type="email" name="email" id="pickup-email" required placeholder="請輸入您的 Email 作為訂單確認憑證" class="w-full bg-stone-50 border border-stone-200 rounded-lg p-2.5 text-sm focus:outline-none focus:border-brand-sage focus:bg-white transition-all">
                 </div>
 
-                <!-- 自取日期 與 🆕 取貨時間時段 -->
+                <!-- 🔄 地點優先（移至上方） -->
+                <div>
+                    <label class="block text-xs font-bold text-stone-700 mb-2">指定自取地點 <span class="text-red-500">*</span></label>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <label class="border border-stone-200 rounded-xl p-3 flex items-center gap-3 cursor-pointer hover:bg-stone-50 transition-all select-none">
+                            <input type="radio" name="pickupLocation" value="宜蘭 | 拾光荏苒" required onchange="handleLocationChange()" class="w-4 h-4 text-brand-sage focus:ring-brand-sage border-stone-300">
+                            <div class="text-left">
+                                <span class="block text-xs font-bold text-brand-darkText">宜蘭 ╳ 拾光荏苒</span>
+                                <span class="text-[10px] text-stone-400">（此地點限定 6/19 取貨）</span>
+                            </div>
+                        </label>
+                        <label class="border border-stone-200 rounded-xl p-3 flex items-center gap-3 cursor-pointer hover:bg-stone-50 transition-all select-none">
+                            <input type="radio" name="pickupLocation" value="礁溪 | CalmhereCaffe" onchange="handleLocationChange()" class="w-4 h-4 text-brand-sage focus:ring-brand-sage border-stone-300">
+                            <div class="text-left">
+                                <span class="block text-xs font-bold text-brand-darkText">礁溪 ╳ Calmhere Caffè</span>
+                                <span class="text-[10px] text-stone-400">礁溪精品焙煎所自取點</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 日期與時段（移至下方） -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-xs font-bold text-stone-700 mb-1">預計自取日期 <span class="text-red-500">*</span></label>
@@ -317,44 +340,22 @@
                     </div>
                 </div>
 
-                <!-- 🆕 自取地點選擇 (客製化美感 Radio 選項) -->
-                <div>
-                    <label class="block text-xs font-bold text-stone-700 mb-2">指定自取地點 <span class="text-red-500">*</span></label>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <label class="border border-stone-200 rounded-xl p-3 flex items-center gap-3 cursor-pointer hover:bg-stone-50 transition-all select-none">
-                            <input type="radio" name="pickupLocation" value="宜蘭 | 拾光荏苒" required class="w-4 h-4 text-brand-sage focus:ring-brand-sage border-stone-300">
-                            <div class="text-left">
-                                <span class="block text-xs font-bold text-brand-darkText">宜蘭 ╳ 拾光荏苒</span>
-                                <span class="text-[10px] text-stone-400">宜蘭市門市自取點</span>
-                            </div>
-                        </label>
-                        <label class="border border-stone-200 rounded-xl p-3 flex items-center gap-3 cursor-pointer hover:bg-stone-50 transition-all select-none">
-                            <input type="radio" name="pickupLocation" value="礁溪 | CalmhereCaffe" class="w-4 h-4 text-brand-sage focus:ring-brand-sage border-stone-300">
-                            <div class="text-left">
-                                <span class="block text-xs font-bold text-brand-darkText">礁溪 ╳ Calmhere Caffè</span>
-                                <span class="text-[10px] text-stone-400">礁溪精品焙煎所自取點</span>
-                            </div>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- 🆕 是否需要節慶蠟燭 (免費附贈單支) -->
+                <!-- 節慶蠟燭 -->
                 <div class="bg-stone-50/60 border border-stone-200/80 rounded-xl p-3.5 flex items-center justify-between">
                     <div class="flex items-center gap-2.5">
                         <div class="text-brand-caramel text-base"><i class="fa-solid fa-cake-candles"></i></div>
                         <div>
                             <span class="block text-xs font-bold text-stone-700">是否需要慶生蠟燭？</span>
-                            <span class="text-[10px] text-stone-400">每顆/片蛋糕皆可免費附贈單支精緻造型蠟燭</span>
+                            <span class="text-[10px] text-stone-400">免費附贈單支精緻造型蠟燭</span>
                         </div>
                     </div>
                     <select name="needCandle" id="need-candle" class="bg-white border border-stone-300 rounded-lg py-1.5 px-3 text-xs focus:outline-none focus:border-brand-sage transition-all text-stone-700 font-medium">
                         <option value="不需要">不需要</option>
-                        <option value="需要（免費附贈單支）">需要（附贈單支）</option>
+                        <option value="需要（免費附贈單支）">需要（免費附贈單支）</option>
                     </select>
                 </div>
             </div>
 
-            <!-- 後端儲存專用隱藏欄位 -->
             <input type="hidden" name="items" id="hidden-items">
             <input type="hidden" name="total" id="hidden-total">
 
@@ -373,93 +374,27 @@
         </form>
     </section>
 
-    <section id="pickup-section" class="py-20 px-6 bg-white border-t border-stone-200">
-        <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-12">
-                <p class="text-brand-caramel text-xs font-bold tracking-widest uppercase mb-2">Location & Steps</p>
-                <h3 class="text-3xl font-serif font-bold tracking-wide">💡 預購自取３大步驟</h3>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                <div class="flex flex-col items-center gap-2">
-                    <div class="w-12 h-12 rounded-full bg-brand-accent text-brand-sage flex items-center justify-center font-serif text-lg font-bold shadow-inner">1</div>
-                    <h5 class="font-bold text-base mt-2">線上選購與填單</h5>
-                    <p class="text-stone-500 text-xs leading-relaxed max-w-xs">在本官網直接挑選巴斯克品項，填寫您的自取聯絡資料、Email，並自由勾選期望時段與自取店鋪。</p>
-                </div>
-                <div class="flex flex-col items-center gap-2">
-                    <div class="w-12 h-12 rounded-full bg-brand-accent text-brand-sage flex items-center justify-center font-serif text-lg font-bold shadow-inner">2</div>
-                    <h5 class="font-bold text-base mt-2">後端自動登記</h5>
-                    <p class="text-stone-500 text-xs leading-relaxed max-w-xs">系統將繞過所有網域阻擋，直接精準將預約資訊、蠟燭需求等明細寫入後台試算表記錄。</p>
-                </div>
-                <div class="flex flex-col items-center gap-2">
-                    <div class="w-12 h-12 rounded-full bg-brand-accent text-brand-sage flex items-center justify-center font-serif text-lg font-bold shadow-inner">3</div>
-                    <h5 class="font-bold text-base mt-2">指定店內取貨付款</h5>
-                    <p class="text-stone-500 text-xs leading-relaxed max-w-xs">依預定日期時段前往您勾選的「宜蘭 ╳ 拾光荏苒」或「礁溪 ╳ Calmhere Caffè」領取美味巴斯克！</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-brand-darkText text-stone-400 py-12 px-6 border-t border-stone-800 text-xs text-center md:text-left">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-            <div>
-                <h5 class="text-white font-serif font-bold text-sm tracking-wide mb-2">手作烘焙工作室 ╳ 精選品牌聯名自取預約</h5>
-                <p class="text-stone-500 leading-relaxed max-w-md">本網頁為自取預約專屬官網。所有巴斯克甜點皆為每日限量新鮮手工焙烤配送。</p>
-            </div>
-            <div class="text-stone-500 md:text-right">
-                <p>門市點①：宜蘭市女中路三段「拾光荏苒」</p>
-                <p>門市點②：宜蘭縣礁溪鄉「Calmhere Caffè」</p>
-                <p class="mt-1">© 2026 Bakery & Caffè. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- 設定視窗 -->
+    <!-- 設定與彈窗 -->
     <div id="config-modal" class="fixed inset-0 bg-black/60 z-50 backdrop-blur-sm hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-md w-full shadow-2xl border border-stone-200 overflow-hidden transform transition-all duration-300">
+        <div class="bg-white rounded-2xl max-w-md w-full shadow-2xl border border-stone-200 overflow-hidden">
             <div class="bg-brand-sage p-6 text-white flex justify-between items-center">
-                <div class="flex items-center gap-2">
-                    <i class="fa-solid fa-gears text-xl"></i>
-                    <div>
-                        <h4 class="font-bold font-serif text-base">⚙️ 預購網頁 API 設定</h4>
-                        <p class="text-[10px] text-stone-200 font-light mt-0.5">請在此輸入您的 Google Apps Script 網址</p>
-                    </div>
-                </div>
-                <button type="button" onclick="toggleConfigModal()" class="text-white/80 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+                <h4 class="font-bold font-serif text-base">⚙️ 預購網頁 API 設定</h4>
+                <button type="button" onclick="toggleConfigModal()"><i class="fa-solid fa-xmark text-lg"></i></button>
             </div>
             <div class="p-6 flex flex-col gap-5">
-                <div class="flex flex-col gap-2">
-                    <label class="text-xs font-bold text-stone-700">1. Google Apps Script 部署網址 (API URL)</label>
-                    <input type="url" id="google-form-url" placeholder="https://script.google.com/macros/s/.../exec" class="w-full bg-stone-50 border border-stone-300 rounded-lg p-3 text-xs focus:outline-none focus:border-brand-sage focus:bg-white transition-all">
-                </div>
-                <div class="flex gap-3 mt-2">
-                    <button type="button" onclick="toggleConfigModal()" class="flex-1 py-2.5 bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold rounded-lg text-xs transition-all">取消</button>
-                    <button type="button" onclick="saveConfig()" class="flex-1 py-2.5 bg-brand-caramel hover:bg-opacity-90 text-white font-bold rounded-lg text-xs transition-all">儲存網頁設定</button>
-                </div>
+                <input type="url" id="google-form-url" placeholder="https://script.google.com/macros/s/.../exec" class="w-full bg-stone-50 border border-stone-300 rounded-lg p-3 text-xs focus:outline-none focus:border-brand-sage">
+                <button type="button" onclick="saveConfig()" class="w-full py-2.5 bg-brand-caramel text-white font-bold rounded-lg text-xs">儲存網頁設定</button>
             </div>
         </div>
     </div>
 
-    <!-- ✨ 質感高級通知彈窗 (Success Modal) -->
     <div id="success-modal" class="fixed inset-0 bg-black/50 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-sm w-full shadow-2xl p-6 text-center transform transition-all border border-stone-100 flex flex-col items-center gap-4">
-            <div class="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-3xl animate-bounce">
-                <i class="fa-solid fa-circle-check"></i>
-            </div>
-            <div>
-                <h4 class="font-serif font-bold text-xl text-brand-darkText">預約登記成功</h4>
-                <p class="text-stone-500 text-xs mt-2 leading-relaxed">
-                    您的美味巴斯克訂單已成功寫入系統！<br>
-                    請記得於約定日期與選取時段前往指定的門市自取點取貨付款。
-                </p>
-            </div>
-            <button type="button" onclick="closeSuccessModal()" class="w-full py-3 bg-brand-sage hover:bg-opacity-95 text-white text-xs font-bold tracking-widest rounded-lg transition-all shadow mt-2">
-                太棒了，我知道了
-            </button>
+        <div class="bg-white rounded-2xl max-w-sm w-full shadow-2xl p-6 text-center flex flex-col items-center gap-4">
+            <div class="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-3xl"><i class="fa-solid fa-circle-check"></i></div>
+            <h4 class="font-serif font-bold text-xl text-brand-darkText">預約登記成功</h4>
+            <p class="text-stone-500 text-xs">美味巴斯克訂單已成功送出！請於約定日期與時段前往指定門市取貨。</p>
+            <button type="button" onclick="closeSuccessModal()" class="w-full py-3 bg-brand-sage text-white text-xs font-bold rounded-lg">太棒了，我知道了</button>
         </div>
-    </div>
-
-    <div id="toast" class="fixed bottom-6 right-6 bg-brand-sage text-white text-sm font-medium px-5 py-3 rounded-lg shadow-lg opacity-0 pointer-events-none transform translate-y-3 transition-all duration-300 z-50 flex items-center gap-2">
-        <i class="fa-solid fa-circle-check"></i> <span id="toast-message">設定成功！</span>
     </div>
 
     <script>
@@ -467,9 +402,11 @@
             slice_orig: { name: '【原味經典】單片', price: 110, qty: 0 },
             slice_matcha: { name: '【抹茶麻糬】單片', price: 130, qty: 0 },
             slice_matcha_pure: { name: '【經典濃綠抹茶】單片', price: 120, qty: 0 },
+            slice_choc: { name: '【法芙娜巧克力】單片', price: 120, qty: 0 },
             whole_orig: { name: '【經典原味】完整六吋', price: 580, qty: 0 },
-            whole_matcha: { name: '【抹茶麻糬】完整六吋', price: 680, qty: 0 },
+            whole_matcha: { name: '【小山園抹茶麻糬】完整六吋', price: 680, qty: 0 },
             whole_matcha_pure: { name: '【經典濃綠抹茶】完整六吋', price: 620, qty: 0 },
+            whole_pistachio: { name: '【西西里開心果】完整六吋', price: 780, qty: 0 }
         };
 
         let isSubmitting = false;
@@ -482,29 +419,36 @@
             }
         });
 
-        function toggleConfigModal() {
-            document.getElementById('config-modal').classList.toggle('hidden');
-        }
+        // 🧠 核心智慧控制：切換地點時動態約束日期
+        function handleLocationChange() {
+            const dateInput = document.getElementById('pickup-date');
+            const selectedLocation = document.querySelector('input[name="pickupLocation"]:checked').value;
 
-        function saveConfig() {
-            const urlInput = document.getElementById('google-form-url').value.trim();
-            if (urlInput) {
-                localStorage.setItem('basque_google_form_url', urlInput);
-                document.getElementById('preorder-form').action = urlInput;
-                showToast('📋 試算表 API 連結儲存成功！');
-                toggleConfigModal();
+            if (selectedLocation === "宜蘭 | 拾光荏苒") {
+                dateInput.value = "2026-06-19";
+                dateInput.min = "2026-06-19";
+                dateInput.max = "2026-06-19";
+                // 提示使用者
+                dateInput.classList.add("border-brand-sage", "bg-emerald-50/50");
             } else {
-                localStorage.removeItem('basque_google_form_url');
-                document.getElementById('preorder-form').action = "";
-                showToast('⚠️ 已清除後端網址。');
-                toggleConfigModal();
+                // 選擇礁溪時解除限制
+                dateInput.value = "";
+                dateInput.removeAttribute("min");
+                dateInput.removeAttribute("max");
+                dateInput.classList.remove("border-brand-sage", "bg-emerald-50/50");
             }
         }
 
+        function toggleConfigModal() { document.getElementById('config-modal').classList.toggle('hidden'); }
+        function saveConfig() {
+            const urlInput = document.getElementById('google-form-url').value.trim();
+            localStorage.setItem('basque_google_form_url', urlInput);
+            document.getElementById('preorder-form').action = urlInput;
+            toggleConfigModal();
+        }
+
         function updateQty(id, change) {
-            const product = products[id];
-            if (!product) return;
-            let newQty = product.qty + change;
+            let newQty = products[id].qty + change;
             if (newQty < 0) newQty = 0;
             products[id].qty = newQty;
             document.getElementById(`qty-${id}`).innerText = newQty;
@@ -520,14 +464,13 @@
             let total = 0;
 
             for (const key in products) {
-                const item = products[key];
-                if (item.qty > 0) {
+                if (products[key].qty > 0) {
                     hasItems = true;
-                    const subtotal = item.price * item.qty;
+                    const subtotal = products[key].price * products[key].qty;
                     total += subtotal;
                     const row = document.createElement('div');
                     row.className = "flex justify-between items-center text-xs text-stone-600 border-b border-stone-100 pb-2";
-                    row.innerHTML = `<span class="font-medium text-brand-darkText">${item.name} <span class="text-stone-400 font-mono">x ${item.qty}</span></span><span class="font-bold text-stone-800">NT$ ${subtotal}</span>`;
+                    row.innerHTML = `<span>${products[key].name} <span class="text-stone-400">x ${products[key].qty}</span></span><span class="font-bold">NT$ ${subtotal}</span>`;
                     listContainer.appendChild(row);
                 }
             }
@@ -536,19 +479,14 @@
                 emptyMsg.classList.add('hidden');
             } else {
                 listContainer.classList.add('hidden');
-                emptyMsg.className = "text-center py-6 text-stone-400 text-sm";
+                emptyMsg.classList.remove('hidden');
             }
             totalSpan.innerText = total;
         }
 
         function validateAndSubmit(event) {
             const apiUrl = localStorage.getItem('basque_google_form_url');
-            if (!apiUrl) {
-                alert('⚠️ 請先點擊網頁右上角齒輪，設定您的後端 API 網址！');
-                toggleConfigModal();
-                event.preventDefault();
-                return false;
-            }
+            if (!apiUrl) { alert('⚠️ 請先設定後端 API 網址！'); toggleConfigModal(); event.preventDefault(); return false; }
 
             let orderItems = [];
             let totalAmount = 0;
@@ -559,65 +497,39 @@
                 }
             }
 
-            if (orderItems.length === 0) {
-                alert('⚠️ 您尚未選取任何巴斯克口味與數量喔！');
-                event.preventDefault();
-                return false;
-            }
+            if (orderItems.length === 0) { alert('⚠️ 您尚未選取任何品項喔！'); event.preventDefault(); return false; }
 
             document.getElementById('hidden-items').value = orderItems.join('、');
             document.getElementById('hidden-total').value = totalAmount;
 
-            // 進入傳送狀態，鎖定按鈕
             isSubmitting = true;
             document.getElementById('btn-submit').disabled = true;
-            document.getElementById('btn-text').innerText = "正在為您連線系統登記中...";
-            document.getElementById('btn-icon').className = "fa-solid fa-spinner animate-spin text-white";
+            document.getElementById('btn-text').innerText = "連線登記中...";
             return true;
         }
 
-        // 當隱藏的 iframe 收到 Google 的回應後觸發
         function handleIframeResponse() {
             if (isSubmitting) {
                 isSubmitting = false;
-                
-                // 恢復按鈕原本的樣式
-                const btnSubmit = document.getElementById('btn-submit');
-                btnSubmit.disabled = false;
+                document.getElementById('btn-submit').disabled = false;
                 document.getElementById('btn-text').innerText = "確認無誤，直接送出預約";
-                document.getElementById('btn-icon').className = "fa-solid fa-paper-plane";
-
-                // 🎉 秀出高質感自訂彈窗
                 document.getElementById('success-modal').classList.remove('hidden');
             }
         }
 
-        // 關閉成功通知視窗並重設整張表單與購物車
         function closeSuccessModal() {
             document.getElementById('success-modal').classList.add('hidden');
-            
-            // 1. 重填使用者輸入框
             document.getElementById('preorder-form').reset();
-            
-            // 2. 購物車資料全部回歸 0 
             for (const key in products) {
                 products[key].qty = 0;
-                const qtyEl = document.getElementById(`qty-${key}`);
-                if (qtyEl) qtyEl.innerText = "0";
+                if(document.getElementById(`qty-${key}`)) document.getElementById(`qty-${key}`).innerText = "0";
             }
-            
-            // 3. 重新整理計算購物車顯示狀態
+            // 重設日期狀態
+            const dateInput = document.getElementById('pickup-date');
+            dateInput.removeAttribute("min");
+            dateInput.removeAttribute("max");
+            dateInput.classList.remove("border-brand-sage", "bg-emerald-50/50");
             recalculateCart();
-        }
-
-        function showToast(message) {
-            const toast = document.getElementById('toast');
-            const toastMsg = document.getElementById('toast-message');
-            toastMsg.innerText = message;
-            toast.className = "fixed bottom-6 right-6 bg-brand-sage text-white text-sm font-medium px-5 py-3 rounded-lg shadow-lg opacity-100 transform translate-y-0 transition-all duration-300 z-50 flex items-center gap-2";
-            setTimeout(() => {
-                toast.className = "fixed bottom-6 right-6 bg-brand-sage text-white text-sm font-medium px-5 py-3 rounded-lg shadow-lg opacity-0 pointer-events-none transform translate-y-3 transition-all duration-300 z-50 flex items-center gap-2";
-            }, 3500);
         }
     </script>
 </body>
