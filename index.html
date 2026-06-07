@@ -206,7 +206,7 @@
                 <h4 class="font-serif font-bold text-lg md:text-xl text-brand-darkText">🎂 豪華整顆六吋預訂區 <span class="text-xs font-normal text-stone-500 font-sans ml-2">（分享、慶生首選，均附精美提盒與提袋）</span></h4>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- 原味六吋（更換為指定圖片） -->
+                <!-- 原味六吋 -->
                 <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
                     <div class="h-44 overflow-hidden relative">
                         <img src="original6o.png" class="w-full h-full object-cover" alt="經典原味巴斯克完整六吋">
@@ -585,7 +585,7 @@
                 }
             }
 
-            if (orderItems.length === 0) { alert('⚠️ 您尚未選取 any 品項喔！'); event.preventDefault(); return false; }
+            if (orderItems.length === 0) { alert('⚠️ 您尚未選取任何品項喔！'); event.preventDefault(); return false; }
 
             document.getElementById('hidden-items').value = orderItems.join('、');
             document.getElementById('hidden-total').value = totalAmount;
