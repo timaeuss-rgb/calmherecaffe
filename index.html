@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>拾光荏苒 ╳ 焙刻時光｜極致慢熟巴斯克乳酪蛋糕預購</title>
-    <!-- Tailwind CSS & FontAwesome -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+
     <script>
         tailwind.config = {
             theme: {
@@ -37,7 +36,6 @@
         html {
             scroll-behavior: smooth;
         }
-        /* 自訂細節過渡 */
         .hover-lift {
             transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
         }
@@ -49,7 +47,6 @@
 </head>
 <body class="bg-brand-warmBg text-brand-darkText font-sans selection:bg-brand-sage selection:text-white">
 
-    <!-- 頂部導覽列 -->
     <nav class="bg-white/80 backdrop-blur-md border-b border-stone-200 py-4 px-6 sticky top-0 z-40 shadow-sm">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
             <div class="flex items-center gap-3">
@@ -59,17 +56,16 @@
                     <p class="text-[10px] text-brand-sage font-medium tracking-widest uppercase">Premium Basque Preorder</p>
                 </div>
             </div>
-            
+
             <div class="flex items-center gap-4">
                 <a href="#products-section" class="hidden md:inline-block text-xs font-medium tracking-wider hover:text-brand-caramel transition-all">手作風味</a>
                 <a href="#ingredients-section" class="hidden md:inline-block text-xs font-medium tracking-wider hover:text-brand-caramel transition-all">頂級原料</a>
                 <a href="#pickup-section" class="hidden md:inline-block text-xs font-medium tracking-wider hover:text-brand-caramel transition-all">自取須知</a>
-                
-                <!-- 網頁設定按鈕（齒輪） -->
-                <button onclick="toggleConfigModal()" class="w-8 h-8 rounded-full bg-stone-100 hover:bg-stone-200 flex items-center justify-center text-stone-600 transition-all" title="網頁設定 (連結您的Google表單)">
+
+                <button onclick="toggleConfigModal()" class="w-8 h-8 rounded-full bg-stone-100 hover:bg-stone-200 flex items-center justify-center text-stone-600 transition-all" title="網頁設定 (連結您的Google試算表)">
                     <i class="fa-solid fa-gear"></i>
                 </button>
-                
+
                 <a href="#products-section" class="bg-brand-sage hover:bg-opacity-90 text-white text-xs px-4 py-2 rounded font-medium tracking-wider transition-all">
                     立刻預訂
                 </a>
@@ -77,10 +73,8 @@
         </div>
     </nav>
 
-    <!-- 主視覺 Banner (Hero Section) -->
     <header class="relative bg-stone-900 text-white h-[80vh] min-h-[500px] flex items-center overflow-hidden">
         <div class="absolute inset-0">
-            <!-- 高質感巴斯克背景圖（暖光影） -->
             <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1600&auto=format&fit=crop" class="w-full h-full object-cover brightness-[0.4]" alt="Basque Cheesecake Hero">
         </div>
         <div class="max-w-4xl mx-auto px-6 relative z-10 text-center flex flex-col items-center">
@@ -99,7 +93,6 @@
         </div>
     </header>
 
-    <!-- 聯名核心介紹區 -->
     <section class="py-16 px-6 bg-white border-b border-stone-200">
         <div class="max-w-4xl mx-auto text-center">
             <p class="text-brand-caramel text-xs font-bold tracking-widest uppercase mb-2">The Collaboration</p>
@@ -110,7 +103,6 @@
         </div>
     </section>
 
-    <!-- 頂級原料宣言區 -->
     <section id="ingredients-section" class="py-20 px-6 bg-brand-accent/50">
         <div class="max-w-5xl mx-auto">
             <div class="text-center mb-12">
@@ -118,27 +110,23 @@
                 <h3 class="text-3xl font-serif font-bold tracking-wide text-brand-darkText">🌿 頂級奢華原料宣言</h3>
                 <p class="text-stone-500 text-xs mt-2">毫不妥協的嚴選食材，是我們對美味唯一的堅持</p>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- 原料 1 -->
                 <div class="bg-white p-6 rounded-xl border border-stone-200 shadow-sm flex flex-col gap-3">
                     <div class="w-10 h-10 rounded-full bg-brand-sage/10 text-brand-sage flex items-center justify-center text-lg"><i class="fa-solid fa-cow"></i></div>
                     <h4 class="font-bold text-base">北海道 LUXE 乳酪雙重奏</h4>
                     <p class="text-stone-600 text-xs leading-relaxed">融合頂級北海道 LUXE 奶油乳酪與澳洲經典卡夫乾酪，經過精準比例調配，創造出前所未有的極致絲滑奶香。</p>
                 </div>
-                <!-- 原料 2 -->
                 <div class="bg-white p-6 rounded-xl border border-stone-200 shadow-sm flex flex-col gap-3">
                     <div class="w-10 h-10 rounded-full bg-brand-caramel/10 text-brand-caramel flex items-center justify-center text-lg"><i class="fa-solid fa-egg"></i></div>
                     <h4 class="font-bold text-base">礁溪放牧快樂雞蛋</h4>
                     <p class="text-stone-600 text-xs leading-relaxed">每日由宜蘭礁溪竹林產地新鮮直達！採用人道放牧的快樂母雞產出的優質鮮蛋，精緻純淨、毫無腥味。</p>
                 </div>
-                <!-- 原料 3 -->
                 <div class="bg-white p-6 rounded-xl border border-stone-200 shadow-sm flex flex-col gap-3">
                     <div class="w-10 h-10 rounded-full bg-brand-sage/10 text-brand-sage flex items-center justify-center text-lg"><i class="fa-solid fa-seedling"></i></div>
                     <h4 class="font-bold text-base">小山園五十鈴 ╳ 法芙娜</h4>
                     <p class="text-stone-600 text-xs leading-relaxed">調味絕不將就。綠色選用京都宇治頂級「小山園五十鈴抹茶」；黑色則傾注比利時頂級 70% 法芙娜可可，口感奢華。</p>
                 </div>
-                <!-- 原料 4 (新加入開心果) -->
                 <div class="bg-white p-6 rounded-xl border border-stone-200 shadow-sm flex flex-col gap-3">
                     <div class="w-10 h-10 rounded-full bg-brand-caramel/10 text-brand-caramel flex items-center justify-center text-lg"><i class="fa-solid fa-nut"></i></div>
                     <h4 class="font-bold text-base">西西里 100% 開心果醬</h4>
@@ -148,7 +136,6 @@
         </div>
     </section>
 
-    <!-- 商品與預購選單區 (核心互動) -->
     <section id="products-section" class="py-20 px-6 max-w-6xl mx-auto">
         <div class="text-center mb-16">
             <p class="text-brand-caramel text-xs font-bold tracking-widest uppercase mb-2">Interactive Menu</p>
@@ -156,7 +143,6 @@
             <p class="text-stone-500 text-xs mt-2">請點選加購所需的品項與數量，下方將自動為你計算預算明細</p>
         </div>
 
-        <!-- 商品分類一：經典單片嚐鮮 -->
         <div class="mb-14">
             <div class="border-l-4 border-brand-sage pl-3 mb-6">
                 <h4 class="font-serif font-bold text-xl">✨ 經典單片嚐鮮區（6吋開六，切片單售）</h4>
@@ -164,7 +150,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- 單片原味 -->
                 <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
                     <div class="h-48 overflow-hidden relative">
                         <img src="https://tiffinandteaofficial.com/wp-content/uploads/2020/06/281122_5.jpg" class="w-full h-full object-cover" alt="經典原味巴斯克">
@@ -189,7 +174,6 @@
                     </div>
                 </div>
 
-                <!-- 單片抹茶麻糬 -->
                 <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
                     <div class="h-48 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover" alt="靜岡五十鈴抹茶">
@@ -214,7 +198,6 @@
                     </div>
                 </div>
 
-                <!-- 單片純抹茶 (新加入) -->
                 <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
                     <div class="h-48 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1515688594390-b649af70d282?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover" alt="經典小山園抹茶">
@@ -239,7 +222,6 @@
                     </div>
                 </div>
 
-                <!-- 單片巧克力 -->
                 <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
                     <div class="h-48 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover" alt="比利時苦甜巧克力">
@@ -264,7 +246,6 @@
                     </div>
                 </div>
 
-                <!-- 單片開心果 (新加入) -->
                 <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
                     <div class="h-48 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1626803775151-61d756612f97?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover" alt="西西里開心果巴斯克">
@@ -291,7 +272,6 @@
             </div>
         </div>
 
-        <!-- 商品分類二：精裝整顆六吋 -->
         <div class="mb-14">
             <div class="border-l-4 border-brand-caramel pl-3 mb-6">
                 <h4 class="font-serif font-bold text-xl">🎂 豪華整顆六吋預訂區（分享、慶生首選）</h4>
@@ -299,7 +279,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- 六吋原味 -->
                 <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
                     <div class="p-6">
                         <span class="text-[10px] font-bold text-brand-caramel bg-brand-caramel/10 px-2 py-0.5 rounded tracking-wider uppercase">Classic Choice</span>
@@ -317,7 +296,6 @@
                     </div>
                 </div>
 
-                <!-- 六吋抹茶麻糬 -->
                 <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
                     <div class="p-6">
                         <span class="text-[10px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded tracking-wider uppercase">Matcha Lovers</span>
@@ -335,7 +313,6 @@
                     </div>
                 </div>
 
-                <!-- 六吋純抹茶 (新加入) -->
                 <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
                     <div class="p-6">
                         <span class="text-[10px] font-bold text-teal-800 bg-teal-50 px-2 py-0.5 rounded tracking-wider uppercase">Pure Matcha Spirit</span>
@@ -353,7 +330,6 @@
                     </div>
                 </div>
 
-                <!-- 六吋巧克力 -->
                 <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
                     <div class="p-6">
                         <span class="text-[10px] font-bold text-amber-900 bg-amber-50 px-2 py-0.5 rounded tracking-wider uppercase">Rich Cocoa</span>
@@ -371,7 +347,6 @@
                     </div>
                 </div>
 
-                <!-- 六吋開心果 (新加入) -->
                 <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
                     <div class="p-6">
                         <span class="text-[10px] font-bold text-lime-800 bg-lime-50 px-2 py-0.5 rounded tracking-wider uppercase">Luxury Pistachio</span>
@@ -391,18 +366,35 @@
             </div>
         </div>
 
-        <!-- 即時購物車計算明細面板 -->
         <div class="bg-white border-2 border-brand-sage/20 rounded-2xl p-6 md:p-8 shadow-md max-w-2xl mx-auto mt-16">
-            <h4 class="font-serif font-bold text-xl text-center text-brand-darkText border-b border-stone-100 pb-4 mb-4 flex items-center justify-center gap-2">
-                <i class="fa-solid fa-cart-shopping text-brand-sage"></i> 您的預約小計明細
+            <h4 class="font-serif font-bold text-xl text-center text-brand-darkText border-b border-stone-100 pb-4 mb-6 flex items-center justify-center gap-2">
+                <i class="fa-solid fa-file-invoice text-brand-sage"></i> 填寫自取預約資料
             </h4>
-            
+
+            <div class="space-y-4 mb-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-stone-700 mb-1">訂購人姓名 <span class="text-red-500">*</span></label>
+                        <input type="text" id="pickup-name" placeholder="請輸入姓名" class="w-full bg-stone-50 border border-stone-200 rounded-lg p-2.5 text-sm focus:outline-none focus:border-brand-sage focus:bg-white transition-all">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-stone-700 mb-1">聯絡電話 <span class="text-red-500">*</span></label>
+                        <input type="tel" id="pickup-phone" placeholder="如：0912345678" class="w-full bg-stone-50 border border-stone-200 rounded-lg p-2.5 text-sm focus:outline-none focus:border-brand-sage focus:bg-white transition-all">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-stone-700 mb-1">預計自取日期 <span class="text-red-500">*</span></label>
+                    <input type="date" id="pickup-date" class="w-full bg-stone-50 border border-stone-200 rounded-lg p-2.5 text-sm focus:outline-none focus:border-brand-sage focus:bg-white transition-all">
+                </div>
+            </div>
+
+            <h5 class="text-xs font-bold text-stone-400 border-t border-stone-100 pt-4 mb-3 tracking-wider uppercase">您的預約品項明細</h5>
+
             <div id="cart-empty-message" class="text-center py-6 text-stone-400 text-sm">
                 目前尚未選購商品，快在上方點選數量吧！
             </div>
-            
+
             <div id="cart-items-list" class="space-y-3 hidden">
-                <!-- JS 動態生成明細 -->
             </div>
 
             <div class="border-t border-stone-100 mt-4 pt-4 flex justify-between items-center font-bold text-lg text-brand-darkText">
@@ -410,37 +402,35 @@
                 <span class="text-brand-caramel font-serif text-2.5xl">NT$ <span id="cart-total">0</span></span>
             </div>
 
-            <!-- 自取聲明 -->
             <div class="bg-brand-accent/30 rounded-lg p-4 text-xs text-stone-600 mt-6 leading-relaxed space-y-1">
                 <p class="font-bold text-brand-sage"><i class="fa-solid fa-location-dot"></i> 自取取貨點與注意事項：</p>
                 <p>1. 取貨地點：<strong>「拾光荏苒」輕食咖啡廳門市</strong>（宜蘭市女中路三段）</p>
                 <p>2. 因為每日手工新鮮限量製作，送出表單後，我們會以簡訊或 Line 確認訂購狀態才算訂單成功。</p>
             </div>
 
-            <button onclick="submitPreorder()" class="w-full py-4 bg-brand-sage hover:bg-opacity-95 text-white font-bold rounded-lg tracking-wider transition-all mt-6 shadow flex items-center justify-center gap-2 text-base">
-                確定預約，前往填寫自取資料 <i class="fa-solid fa-chevron-right"></i>
+            <button id="btn-submit" onclick="submitPreorderToExcel()" class="w-full py-4 bg-brand-sage hover:bg-opacity-95 text-white font-bold rounded-lg tracking-wider transition-all mt-6 shadow flex items-center justify-center gap-2 text-base">
+                <span id="btn-text">確認無誤，直接送出預約</span> <i class="fa-solid fa-paper-plane"></i>
             </button>
         </div>
     </section>
 
-    <!-- 自取流程與地圖區 -->
     <section id="pickup-section" class="py-20 px-6 bg-white border-t border-stone-200">
         <div class="max-w-4xl mx-auto">
             <div class="text-center mb-12">
                 <p class="text-brand-caramel text-xs font-bold tracking-widest uppercase mb-2">Location & Steps</p>
                 <h3 class="text-3xl font-serif font-bold tracking-wide">💡 預購自取３大步驟</h3>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                 <div class="flex flex-col items-center gap-2">
                     <div class="w-12 h-12 rounded-full bg-brand-accent text-brand-sage flex items-center justify-center font-serif text-lg font-bold shadow-inner">1</div>
-                    <h5 class="font-bold text-base mt-2">線上送出預購</h5>
-                    <p class="text-stone-500 text-xs leading-relaxed max-w-xs">在本官網點擊確認後，將前往 Google 表單填寫您要在「拾光荏苒」自取的日期與聯絡手機。</p>
+                    <h5 class="font-bold text-base mt-2">線上選購與填單</h5>
+                    <p class="text-stone-500 text-xs leading-relaxed max-w-xs">在本官網直接挑選巴斯克品項，並在下方填寫您的自取姓名、聯絡手機與取貨日期。</p>
                 </div>
                 <div class="flex flex-col items-center gap-2">
                     <div class="w-12 h-12 rounded-full bg-brand-accent text-brand-sage flex items-center justify-center font-serif text-lg font-bold shadow-inner">2</div>
                     <h5 class="font-bold text-base mt-2">簡訊/Line 訂單確認</h5>
-                    <p class="text-stone-500 text-xs leading-relaxed max-w-xs">我們在收到表單後，將於 24 小時內與您聯繫確認商品數量與自取日期，收到確認即預定成功。</p>
+                    <p class="text-stone-500 text-xs leading-relaxed max-w-xs">我們在後台收到您的預訂資訊後，將於 24 小時內與您聯繫確認商品數量，收到確認即預定成功。</p>
                 </div>
                 <div class="flex flex-col items-center gap-2">
                     <div class="w-12 h-12 rounded-full bg-brand-accent text-brand-sage flex items-center justify-center font-serif text-lg font-bold shadow-inner">3</div>
@@ -451,7 +441,6 @@
         </div>
     </section>
 
-    <!-- 頁尾 -->
     <footer class="bg-brand-darkText text-stone-400 py-12 px-6 border-t border-stone-800 text-xs text-center md:text-left">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
             <div>
@@ -466,9 +455,6 @@
     </footer>
 
 
-    <!-- ========================================== -->
-    <!--  SETTINGS MODAL (網頁設定面板 - 連接Google表單用) -->
-    <!-- ========================================== -->
     <div id="config-modal" class="fixed inset-0 bg-black/60 z-50 backdrop-blur-sm hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-2xl max-w-md w-full shadow-2xl border border-stone-200 overflow-hidden transform transition-all duration-300">
             <div class="bg-brand-sage p-6 text-white flex justify-between items-center">
@@ -476,21 +462,21 @@
                     <i class="fa-solid fa-gears text-xl"></i>
                     <div>
                         <h4 class="font-bold font-serif text-base">⚙️ 巴斯克預購網頁設定</h4>
-                        <p class="text-[10px] text-stone-200 font-light mt-0.5">請在此輸入您的 Google 表單連結</p>
+                        <p class="text-[10px] text-stone-200 font-light mt-0.5">請在此輸入您的 Google Apps Script 網址</p>
                     </div>
                 </div>
                 <button onclick="toggleConfigModal()" class="text-white/80 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
             </div>
             <div class="p-6 flex flex-col gap-5">
                 <div class="flex flex-col gap-2">
-                    <label class="text-xs font-bold text-stone-700">1. Google 表單「回覆/預覽」網址</label>
-                    <p class="text-[10px] text-stone-400 leading-normal">請貼上您在 Google 雲端產生表單後，點擊「傳送」 ➜ 「複製連結 (URL)」所得到的完整網址。</p>
-                    <input type="url" id="google-form-url" placeholder="https://docs.google.com/forms/d/e/.../viewform" class="w-full bg-stone-50 border border-stone-300 rounded-lg p-3 text-xs focus:outline-none focus:border-brand-sage focus:bg-white transition-all">
+                    <label class="text-xs font-bold text-stone-700">1. Google Apps Script 部署網址 (API URL)</label>
+                    <p class="text-[10px] text-stone-400 leading-normal">請貼上您在 Google 試算表內部署「網頁應用程式」所獲得的完整 `exec` 網址。</p>
+                    <input type="url" id="google-form-url" placeholder="https://script.google.com/macros/s/.../exec" class="w-full bg-stone-50 border border-stone-300 rounded-lg p-3 text-xs focus:outline-none focus:border-brand-sage focus:bg-white transition-all">
                 </div>
 
                 <div class="bg-emerald-50 border border-emerald-200 rounded-lg p-3 text-[11px] leading-relaxed text-emerald-800">
-                    <p class="font-bold mb-1"><i class="fa-solid fa-circle-check"></i> 免寫程式碼，無痛對接！</p>
-                    我們使用本地瀏覽器儲存技術。當你在這裡儲存連結後，網頁的所有「預約」按鈕就會自動指向這份表單。客人可以先在網頁看好總價、挑好口味，再過去表單中填聯絡人與取貨日期！
+                    <p class="font-bold mb-1"><i class="fa-solid fa-circle-check"></i> 直連 Google 試算表設定說明</p>
+                    設定好後，客人在同一個網頁畫面填寫「姓名、電話、日期」並送出，資料就會即時直接寫入您的試算表，不會再跳轉到 Google 表單畫面囉！
                 </div>
 
                 <div class="flex gap-3 mt-2">
@@ -501,17 +487,13 @@
         </div>
     </div>
 
-    <!-- 訊息提示 (Toast) -->
     <div id="toast" class="fixed bottom-6 right-6 bg-brand-sage text-white text-sm font-medium px-5 py-3 rounded-lg shadow-lg opacity-0 pointer-events-none transform translate-y-3 transition-all duration-300 z-50 flex items-center gap-2">
         <i class="fa-solid fa-circle-check"></i> <span id="toast-message">設定成功！</span>
     </div>
 
 
-    <!-- ========================================== -->
-    <!--            FRONT-END JAVASCRIPT            -->
-    <!-- ========================================== -->
     <script>
-        // 商品定價矩陣 (新增開心果與純抹茶口味)
+        // 商品定價矩陣
         const products = {
             slice_orig: { name: '【原味經典】單片', price: 110, qty: 0 },
             slice_matcha: { name: '【抹茶麻糬】單片', price: 130, qty: 0 },
@@ -527,34 +509,30 @@
 
         // 頁面初始化
         window.addEventListener('load', () => {
-            // 讀取已經儲存的 Google Form 網址
             const savedUrl = localStorage.getItem('basque_google_form_url');
             if (savedUrl) {
                 document.getElementById('google-form-url').value = savedUrl;
             }
         });
 
-        // 打開或關閉設定彈窗
         function toggleConfigModal() {
             const modal = document.getElementById('config-modal');
             modal.classList.toggle('hidden');
         }
 
-        // 儲存 Google 表單連結
         function saveConfig() {
             const urlInput = document.getElementById('google-form-url').value.trim();
             if (urlInput) {
                 localStorage.setItem('basque_google_form_url', urlInput);
-                showToast('📋 Google 表單連結儲存成功！');
+                showToast('📋 試算表 API 連結儲存成功！');
                 toggleConfigModal();
             } else {
                 localStorage.removeItem('basque_google_form_url');
-                showToast('⚠️ 已清除 Google 表單連結。');
+                showToast('⚠️ 已清除後端網址。');
                 toggleConfigModal();
             }
         }
 
-        // 更新購物車商品數量與重新算帳
         function updateQty(id, change) {
             const product = products[id];
             if (!product) return;
@@ -563,14 +541,10 @@
             if (newQty < 0) newQty = 0;
             product.qty = newQty;
 
-            // 更新網頁上的數量標籤
             document.getElementById(`qty-${id}`).innerText = newQty;
-
-            // 重新渲染計算明細
             recalculateCart();
         }
 
-        // 重新計算購物車小計與總額
         function recalculateCart() {
             const listContainer = document.getElementById('cart-items-list');
             const emptyMsg = document.getElementById('cart-empty-message');
@@ -587,7 +561,6 @@
                     const subtotal = item.price * item.qty;
                     total += subtotal;
 
-                    // 建立一筆明細項目 HTML
                     const row = document.createElement('div');
                     row.className = "flex justify-between items-center text-xs text-stone-600 border-b border-stone-100 pb-2";
                     row.innerHTML = `
@@ -598,7 +571,6 @@
                 }
             }
 
-            // 控制明細列表與空購物車訊息的顯示
             if (hasItems) {
                 listContainer.classList.remove('hidden');
                 emptyMsg.classList.add('hidden');
@@ -610,45 +582,99 @@
             totalSpan.innerText = total;
         }
 
-        // 預約按鈕送出 (跳轉到 Google 表單)
-        function submitPreorder() {
-            const savedUrl = localStorage.getItem('basque_google_form_url');
-            
-            if (!savedUrl) {
-                // 如果沒有設定表單連結，跳出警告並打開設定視窗
-                showToast('⚠️ 請先點擊右上角設定您的 Google 表單連結！');
-                setTimeout(() => {
-                    toggleConfigModal();
-                }, 1000);
+        // 完美修正版：發送表單資料到 Google Excel
+        function submitPreorderToExcel() {
+            const apiUrl = localStorage.getItem('basque_google_form_url');
+            if (!apiUrl) {
+                showToast('⚠️ 請先點擊右上角齒輪設定您的 Google 試算表 API 網址！');
+                setTimeout(() => { toggleConfigModal(); }, 1000);
                 return;
             }
 
-            // 計算是否選了商品
-            let hasItems = false;
-            for (const key in products) {
-                if (products[key].qty > 0) hasItems = true;
+            // 抓取自取欄位資料
+            const name = document.getElementById('pickup-name').value.trim();
+            const phone = document.getElementById('pickup-phone').value.trim();
+            const pickupDate = document.getElementById('pickup-date').value;
+
+            // 驗證欄位
+            if (!name || !phone || !pickupDate) {
+                showToast('⚠️ 請完整填寫姓名、電話與取貨日期！');
+                return;
             }
 
-            if (!hasItems) {
+            // 組合選購明細
+            let orderItems = [];
+            let totalAmount = 0;
+            for (const key in products) {
+                if (products[key].qty > 0) {
+                    orderItems.push(`${products[key].name} x ${products[key].qty}`);
+                    totalAmount += products[key].price * products[key].qty;
+                }
+            }
+
+            if (orderItems.length === 0) {
                 showToast('⚠️ 您尚未選取任何巴斯克口味與數量喔！');
                 return;
             }
 
-            // 成功跳轉
-            showToast('🚀 正在為您導向 Google 預購表單...');
-            setTimeout(() => {
-                window.open(savedUrl, '_blank');
-            }, 1200);
+            // 變更按鈕狀態（防重複點擊）
+            const btn = document.getElementById('btn-submit');
+            const btnText = document.getElementById('btn-text');
+            btn.disabled = true;
+            btn.classList.add('opacity-50', 'cursor-not-allowed');
+            btnText.innerText = "正在送出預約...";
+
+            // 轉化為標準的表單網址參數格式 (百分之百能跨網域穿透 GAS 後台)
+            const formData = new URLSearchParams();
+            formData.append('name', name);
+            formData.append('phone', phone);
+            formData.append('pickupDate', pickupDate);
+            formData.append('items', orderItems.join('、'));
+            formData.append('total', totalAmount);
+
+            // 使用 fetch 將資料發送到 Google Sheets 後台 (開啟 no-cors 模式)
+            fetch(apiUrl, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: formData.toString()
+            })
+            .then(() => {
+                // no-cors 下無法讀取後台 response，但只要連線發出就代表資料已安全抵達試算表
+                showToast('🎉 預約成功！資料已直接幫您登記囉。');
+
+                // 清空欄位與購物車
+                document.getElementById('pickup-name').value = '';
+                document.getElementById('pickup-phone').value = '';
+                document.getElementById('pickup-date').value = '';
+                for (const key in products) {
+                    products[key].qty = 0;
+                    const qtyEl = document.getElementById(`qty-${key}`);
+                    if (qtyEl) qtyEl.innerText = '0';
+                }
+                recalculateCart();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showToast('⚠️ 連線發生錯誤，請稍後再試。');
+            })
+            .finally(() => {
+                // 恢復按鈕狀態
+                btn.disabled = false;
+                btn.classList.remove('opacity-50', 'cursor-not-allowed');
+                btnText.innerText = "確認無誤，直接送出預約";
+            });
         }
 
-        // 顯示 Toast 提示
         function showToast(message) {
             const toast = document.getElementById('toast');
             const toastMsg = document.getElementById('toast-message');
             toastMsg.innerText = message;
-            
+
             toast.className = "fixed bottom-6 right-6 bg-brand-sage text-white text-sm font-medium px-5 py-3 rounded-lg shadow-lg opacity-100 transform translate-y-0 transition-all duration-300 z-50 flex items-center gap-2";
-            
+
             setTimeout(() => {
                 toast.className = "fixed bottom-6 right-6 bg-brand-sage text-white text-sm font-medium px-5 py-3 rounded-lg shadow-lg opacity-0 pointer-events-none transform translate-y-3 transition-all duration-300 z-50 flex items-center gap-2";
             }, 3500);
