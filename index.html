@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght=400;500;700&family=Noto Sans TC:wght=300;400;500;700&family=Playfair+Display:ital,wght=0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght=400;500;700&family=Noto+Sans+TC:wght=300;400;500;700&family=Playfair+Display:ital,wght=0,400..900;1,400..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <script>
@@ -45,12 +45,10 @@
 </head>
 <body class="bg-brand-warmBg text-brand-darkText font-sans selection:bg-brand-sage selection:text-white">
 
-    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="handleIframeResponse()"></iframe>
-
     <nav class="bg-white/80 backdrop-blur-md border-b border-stone-200 py-4 px-6 sticky top-0 z-40 shadow-sm">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-full bg-brand-sage flex items-center justify-center text-white font-serif text-lg font-bold">C</div>
+                <div class="w-10 h-10 rounded-full bg-brand-sage flex items-center justify-center text-white font-serif text-lg font-bold">拾</div>
                 <div>
                     <h1 class="text-lg font-bold font-serif tracking-wide">拾光荏苒 ╳ CalmhereCaffè</h1>
                     <p class="text-[10px] text-brand-sage font-medium tracking-widest uppercase">Premium Basque Preorder</p>
@@ -64,40 +62,44 @@
         </div>
     </nav>
 
+    <!-- 主視覺 -->
     <header class="relative bg-stone-900 text-white h-[65vh] min-h-[450px] flex items-center overflow-hidden">
         <div class="absolute inset-0">
             <img src="https://images.unsplash.com/photo-1624302631266-416be7c11124?q=80&w=1600&auto=format&fit=crop" class="w-full h-full object-cover brightness-[0.35]" alt="Basque Cheesecake">
         </div>
         <div class="max-w-4xl mx-auto px-6 relative z-10 text-center flex flex-col items-center">
             <span class="bg-brand-caramel text-white text-xs px-4 py-1 rounded-full tracking-widest font-semibold uppercase mb-4">SPECIAL COLLABORATION</span>
-            <h2 class="text-3xl md:text-5xl font-serif font-bold tracking-wide leading-tight">在靜謐時光裡，<br>與極致巴斯克相遇</h2>
+            <h2 class="text-3xl md:text-5xl font-serif font-bold tracking-wide leading-tight">在靜謐時光裡，<br>與極致慢熟巴斯克相遇</h2>
             <div class="w-16 h-0.5 bg-brand-caramel my-5"></div>
             <p class="text-stone-300 text-xs md:text-sm max-w-xl leading-relaxed font-light">
-                手作限定！每日限量烘烤、高溫焦糖外皮與冰淇淋般的細緻內餡，為您的午後時光點綴完美儀式感。
+                手作限定！每日限量烘烤、高溫焦糖外皮與冰淇淋般的流心內餡，為您的午後時光點綴完美儀式感。
             </p>
         </div>
     </header>
 
+    <!-- 🍰 今日份慢熟手作巴斯克選購區 -->
     <section class="py-16 px-4 max-w-6xl mx-auto">
         <div class="text-center mb-12">
-            <p class="text-brand-caramel text-xs font-bold tracking-widest uppercase mb-2">Menu</p>
-            <h3 class="text-3xl font-serif font-bold tracking-wide">🧀 挑選您的巴斯克乳酪蛋糕</h3>
+            <p class="text-brand-caramel text-xs font-bold tracking-widest uppercase mb-2">Interactive Menu</p>
+            <h3 class="text-3xl font-serif font-bold tracking-wide">🍰 今日份慢熟手作巴斯克</h3>
             <p class="text-stone-500 text-xs mt-2">請選取您心儀的品項與數量，下方表單將自動為您統計明細與總金額</p>
         </div>
 
+        <!-- 區塊一：單片嚐鮮區 (5款) -->
         <div id="products-slice" class="mb-16">
             <div class="border-l-4 border-brand-sage pl-3 mb-6">
                 <h4 class="font-serif font-bold text-lg md:text-xl text-brand-darkText">✨ 經典單片嚐鮮區 <span class="text-xs font-normal text-stone-500 font-sans ml-2">（6吋開六，切片單售，適合獨享下午茶）</span></h4>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 原味單片 -->
                 <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
                     <div class="h-44 overflow-hidden relative">
-                        <img src="original6o.png" class="w-full h-full object-cover" alt="經典原味巴斯克">
+                        <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover" alt="經典原味巴斯克">
                     </div>
                     <div class="p-5 flex-grow flex flex-col justify-between">
                         <div>
                             <h5 class="font-bold text-base text-brand-darkText">【經典原味巴斯克】單片</h5>
-                            <p class="text-xs text-stone-600 mt-2 leading-relaxed">北海道 LUXE 奶油乳酪 ╳ 澳洲卡夫鮮奶油乳酪，夾帶台灣香草莢香氣，高溫烘烤出厚實無空隙的質地，入口極致滑順、觸舌即化。</p>
+                            <p class="text-xs text-stone-600 mt-2 leading-relaxed">北海道 LUXE 奶油乳酪 ╳ 澳洲卡夫鮮奶油乳酪，夾帶台灣香草莢香氣，高溫烘烤出厚實無空隙的質地，入口極致絲滑、觸舌即化。</p>
                         </div>
                         <div class="mt-4 border-t border-stone-100 pt-3 flex justify-between items-center">
                             <span class="text-brand-caramel font-serif font-bold text-lg">$130</span>
@@ -110,9 +112,10 @@
                     </div>
                 </div>
 
+                <!-- 五十鈴單片 -->
                 <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
                     <div class="h-44 overflow-hidden relative">
-                        <img src="matcha6o.png" class="w-full h-full object-cover" alt="小山園五十鈴巴斯克">
+                        <img src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover" alt="小山園五十鈴巴斯克">
                     </div>
                     <div class="p-5 flex-grow flex flex-col justify-between">
                         <div>
@@ -130,9 +133,10 @@
                     </div>
                 </div>
 
+                <!-- 抹茶麻糬單片 -->
                 <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
                     <div class="h-44 overflow-hidden relative">
-                        <img src="matcha6o.png" class="w-full h-full object-cover" alt="五十鈴抹茶白玉麻糬巴斯克">
+                        <img src="https://images.unsplash.com/photo-1515688594390-b649af70d282?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover" alt="五十鈴抹茶白玉麻糬巴斯克">
                     </div>
                     <div class="p-5 flex-grow flex flex-col justify-between">
                         <div>
@@ -150,9 +154,10 @@
                     </div>
                 </div>
 
+                <!-- 法芙娜巧克力單片 -->
                 <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
                     <div class="h-44 overflow-hidden relative">
-                        <img src="coco6o.png" class="w-full h-full object-cover" alt="法芙娜苦甜可可巴斯克">
+                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover" alt="法芙娜苦甜可可巴斯克">
                     </div>
                     <div class="p-5 flex-grow flex flex-col justify-between">
                         <div>
@@ -170,9 +175,10 @@
                     </div>
                 </div>
 
+                <!-- 開心果單片 -->
                 <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
                     <div class="h-44 overflow-hidden relative">
-                        <img src="original6o.png" class="w-full h-full object-cover" alt="開心果巴斯克">
+                        <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover" alt="開心果巴斯克">
                     </div>
                     <div class="p-5 flex-grow flex flex-col justify-between">
                         <div>
@@ -192,11 +198,13 @@
             </div>
         </div>
 
+        <!-- 區塊二：整顆六吋預訂區 (6款) -->
         <div id="products-whole" class="mb-14">
             <div class="border-l-4 border-brand-caramel pl-3 mb-6">
                 <h4 class="font-serif font-bold text-lg md:text-xl text-brand-darkText">🎂 豪華整顆六吋預訂區 <span class="text-xs font-normal text-stone-500 font-sans ml-2">（分享、慶生首選，均附精美提盒與提袋）</span></h4>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 原味六吋 -->
                 <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
                     <div class="h-44 overflow-hidden relative">
                         <img src="original6o.png" class="w-full h-full object-cover" alt="經典原味巴斯克完整六吋">
@@ -217,6 +225,7 @@
                     </div>
                 </div>
 
+                <!-- 檸月六吋 -->
                 <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
                     <div class="h-44 overflow-hidden relative">
                         <img src="lemon6o.png" class="w-full h-full object-cover" alt="檸月六吋">
@@ -237,6 +246,7 @@
                     </div>
                 </div>
 
+                <!-- 五十鈴六吋 -->
                 <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
                     <div class="h-44 overflow-hidden relative">
                         <img src="matcha6o.png" class="w-full h-full object-cover" alt="五十鈴六吋">
@@ -257,6 +267,7 @@
                     </div>
                 </div>
 
+                <!-- 抹茶麻糬六吋 -->
                 <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
                     <div class="h-44 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1582211594533-268f4f1edcb9?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover" alt="抹茶麻糬六吋">
@@ -277,6 +288,7 @@
                     </div>
                 </div>
 
+                <!-- 法芙娜六吋 -->
                 <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
                     <div class="h-44 overflow-hidden relative">
                         <img src="coco6o.png" class="w-full h-full object-cover" alt="法芙娜六吋">
@@ -297,6 +309,7 @@
                     </div>
                 </div>
 
+                <!-- 開心果六吋 -->
                 <div class="bg-white rounded-xl overflow-hidden border border-stone-200/80 shadow-sm hover-lift flex flex-col justify-between">
                     <div class="h-44 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1508737027454-e6454ef45afd?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover" alt="開心果六吋">
@@ -319,12 +332,14 @@
             </div>
         </div>
 
-        <form id="preorder-form" method="POST" action="" target="hidden_iframe" onsubmit="return validateAndSubmit(event)" class="bg-white border-2 border-brand-sage/20 rounded-2xl p-6 md:p-8 shadow-md max-w-2xl mx-auto mt-16">
+        <!-- 表單填寫區 -->
+        <form id="preorder-form" method="POST" action="" onsubmit="return validateAndSubmit(event)" class="bg-white border-2 border-brand-sage/20 rounded-2xl p-6 md:p-8 shadow-md max-w-2xl mx-auto mt-16">
             <h4 class="font-serif font-bold text-xl text-center text-brand-darkText border-b border-stone-100 pb-4 mb-6 flex items-center justify-center gap-2">
                 <i class="fa-solid fa-file-invoice text-brand-sage"></i> 填寫自取預約資料
             </h4>
             
             <div class="space-y-4 mb-6">
+                <!-- 姓名 與 電話 -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-xs font-bold text-stone-700 mb-1">訂購人姓名 <span class="text-red-500">*</span></label>
@@ -336,11 +351,13 @@
                     </div>
                 </div>
 
+                <!-- 電子信箱 Email -->
                 <div>
                     <label class="block text-xs font-bold text-stone-700 mb-1">電子信箱 Email <span class="text-red-500">*</span></label>
                     <input type="email" name="email" id="pickup-email" required placeholder="請輸入您的 Email 作為訂單確認憑證" class="w-full bg-stone-50 border border-stone-200 rounded-lg p-2.5 text-sm focus:outline-none focus:border-brand-sage focus:bg-white transition-all">
                 </div>
 
+                <!-- 指定自取地點 -->
                 <div>
                     <label class="block text-xs font-bold text-stone-700 mb-2">指定自取地點 <span class="text-red-500">*</span></label>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -361,6 +378,7 @@
                     </div>
                 </div>
 
+                <!-- 日期與時段 -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-xs font-bold text-stone-700 mb-1">預計自取日期 <span class="text-red-500">*</span></label>
@@ -376,6 +394,7 @@
                     </div>
                 </div>
 
+                <!-- 節慶蠟燭 -->
                 <div class="bg-stone-50/60 border border-stone-200/80 rounded-xl p-3.5 flex items-center justify-between">
                     <div class="flex items-center gap-2.5">
                         <div class="text-brand-caramel text-base"><i class="fa-solid fa-cake-candles"></i></div>
@@ -409,6 +428,7 @@
         </form>
     </section>
 
+    <!-- 底部資訊與管理入口 -->
     <footer class="bg-brand-darkText text-stone-400 py-12 px-6 border-t border-stone-800 text-xs text-center md:text-left">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
             <div>
@@ -416,20 +436,21 @@
                 <p class="text-stone-500 leading-relaxed max-w-md">本網頁為自取預約專屬官網。所有巴斯克甜點皆為每日限量新鮮手工焙烤配送。</p>
             </div>
             <div class="text-stone-500 md:text-right">
-                <p>取貨點①：宜蘭縣宜蘭市「拾光荏苒」</p>
-                <p>取貨點②：宜蘭縣礁溪鄉「Calmhere Caffè」</p>
-                <p class="mt-2 cursor-default select-none hover:text-stone-300 transition-all" onclick="triggerSecretConfig()">© CalmhereCaffe. All Rights Reserved.</p>
+                <p>門市點①：宜蘭市門市自取點「拾光荏苒」</p>
+                <p>門市點②：宜蘭縣礁溪鄉「Calmhere Caffè」</p>
+                <p class="mt-2 cursor-default select-none hover:text-stone-300 transition-all" onclick="triggerSecretConfig()">© 2026 Bakery & Caffè. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
+    <!-- 後台設定隱藏視窗 -->
     <div id="config-modal" class="fixed inset-0 bg-black/60 z-50 backdrop-blur-sm hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-2xl max-w-md w-full shadow-2xl border border-stone-200 overflow-hidden">
             <div class="bg-brand-sage p-6 text-white flex justify-between items-center">
                 <h4 class="font-bold font-serif text-base">⚙️ 管理員隱藏 API 設定</h4>
                 <button type="button" onclick="toggleConfigModal()"><i class="fa-solid fa-xmark text-lg"></i></button>
             </div>
-            <div class="p-6 flex flex-col gap-10">
+            <div class="p-6 flex flex-col gap-5">
                 <div>
                     <label class="text-xs font-bold text-stone-700 block mb-2">Google Apps Script 部署網址</label>
                     <input type="url" id="google-form-url" placeholder="https://script.google.com/macros/s/.../exec" class="w-full bg-stone-50 border border-stone-300 rounded-lg p-3 text-xs focus:outline-none focus:border-brand-sage">
@@ -439,6 +460,7 @@
         </div>
     </div>
 
+    <!-- 成功彈窗 -->
     <div id="success-modal" class="fixed inset-0 bg-black/50 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-2xl max-w-sm w-full shadow-2xl p-6 text-center flex flex-col items-center gap-4">
             <div class="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-3xl"><i class="fa-solid fa-circle-check"></i></div>
@@ -449,8 +471,8 @@
     </div>
 
     <script>
-        // 🚨【重要設定】請在下方雙引號中，貼上你的 Google Apps Script 網頁應用程式部署網址 🚨
-        const DEFAULT_GAS_URL = "https://script.google.com/macros/s/AKfycbzTEcpcu59-TGiViOmnjyJF4QYHawcG4YN9JXNj2o96XzxZNny6T0WWpuEVQNtFAhHr/exec";
+        // 🚨【重要設定】請在下方雙引號中，貼上你重新部署得到的最新 GAS 網址 🚨
+        const DEFAULT_GAS_URL = "這裡放你最新的GAS部署網址";
 
         const products = {
             slice_orig: { name: '【經典原味巴斯克】單片', price: 130, qty: 0 },
@@ -471,9 +493,8 @@
         let clickCount = 0;
 
         window.addEventListener('load', () => {
-            // 優先讀取暫存網址，若無則自動套用最上方的預設網址
             let savedUrl = localStorage.getItem('basque_google_form_url');
-            if (!savedUrl && DEFAULT_GAS_URL !== "這裡放你的GAS部署網址") {
+            if (!savedUrl && DEFAULT_GAS_URL !== "這裡放你最新的GAS部署網址") {
                 savedUrl = DEFAULT_GAS_URL;
                 localStorage.setItem('basque_google_form_url', savedUrl);
             }
@@ -557,12 +578,15 @@
         }
 
         function validateAndSubmit(event) {
+            event.preventDefault(); 
+
             const apiUrl = document.getElementById('preorder-form').action;
-            if (!apiUrl || apiUrl.includes("這裡放你的GAS部署網址")) { 
+            if (!apiUrl || apiUrl.includes("這裡放你最新的GAS部署網址")) { 
                 alert('⚠️ 系統尚未設定後端 API 連結，暫時無法接收訂單。請管理員先將 GAS 網址寫入 index.html。'); 
-                event.preventDefault(); 
                 return false; 
             }
+
+            if (isSubmitting) return false; 
 
             let orderItems = [];
             let totalAmount = 0;
@@ -573,24 +597,56 @@
                 }
             }
 
-            if (orderItems.length === 0) { alert('⚠️ 您尚未選取任何品項喔！'); event.preventDefault(); return false; }
-
-            document.getElementById('hidden-items').value = orderItems.join('、');
-            document.getElementById('hidden-total').value = totalAmount;
+            if (orderItems.length === 0) { alert('⚠️ 您尚未選取任何品項喔！'); return false; }
 
             isSubmitting = true;
-            document.getElementById('btn-submit').disabled = true;
-            document.getElementById('btn-text').innerText = "連線登記中...";
-            return true;
-        }
+            const btnSubmit = document.getElementById('btn-submit');
+            btnSubmit.disabled = true;
+            btnSubmit.classList.add('bg-stone-400', 'cursor-not-allowed');
+            btnSubmit.classList.remove('bg-brand-sage', 'hover:bg-opacity-95');
+            document.getElementById('btn-text').innerText = "正在為您連線職人系統，請稍候...";
 
-        function handleIframeResponse() {
-            if (isSubmitting) {
-                isSubmitting = false;
-                document.getElementById('btn-submit').disabled = false;
-                document.getElementById('btn-text').innerText = "確認無誤，直接送出預約";
-                document.getElementById('success-modal').classList.remove('hidden');
+            const formData = new FormData(document.getElementById('preorder-form'));
+            formData.set('items', orderItems.join('、'));
+            formData.set('total', totalAmount);
+
+            const searchParams = new URLSearchParams();
+            for (const pair of formData.entries()) {
+                searchParams.append(pair[0], pair[1]);
             }
+
+            fetch(apiUrl, {
+                method: 'POST',
+                body: searchParams,
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+            })
+            .then(response => response.json())
+            .then(data => {
+                isSubmitting = false;
+                btnSubmit.disabled = false;
+                btnSubmit.classList.remove('bg-stone-400', 'cursor-not-allowed');
+                btnSubmit.classList.add('bg-brand-sage');
+                document.getElementById('btn-text').innerText = "確認無誤，直接送出預約";
+
+                if (data.result === "success") {
+                    document.getElementById('success-modal').classList.remove('hidden');
+                } else if (data.result === "closed") {
+                    alert('🍁 感謝您的支持！目前手作預約已達今日上限，暫時關閉接單。歡迎下次提早預約！');
+                } else {
+                    alert('⚠️ 系統傳輸發生阻礙，請稍後再試：' + data.message);
+                }
+            })
+            .catch(error => {
+                isSubmitting = false;
+                btnSubmit.disabled = false;
+                btnSubmit.classList.remove('bg-stone-400', 'cursor-not-allowed');
+                btnSubmit.classList.add('bg-brand-sage');
+                document.getElementById('btn-text').innerText = "確認無誤，直接送出預約";
+                alert('連線異常，請確認您的網路狀態或確認 GAS 是否正確發布。');
+                console.error(error);
+            });
+
+            return false;
         }
 
         function closeSuccessModal() {
