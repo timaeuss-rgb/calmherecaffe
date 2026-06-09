@@ -50,7 +50,7 @@
     <nav class="bg-white/80 backdrop-blur-md border-b border-stone-200 py-4 px-6 sticky top-0 z-40 shadow-sm">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-full bg-brand-sage flex items-center justify-center text-white font-serif text-lg font-bold">C</div>
+                <div class="w-10 h-10 rounded-full bg-brand-sage flex items-center justify-center text-white font-serif text-lg font-bold"></div>
                 <div>
                     <h1 class="text-lg font-bold font-serif tracking-wide">拾光荏苒 ╳ CalmhereCaffè</h1>
                     <p class="text-[10px] text-brand-sage font-medium tracking-widest uppercase">Premium Basque Preorder</p>
@@ -389,7 +389,7 @@
             </div>
         </div>
 
-        <form id="preorder-form" method="POST" action="" target="hidden_iframe" onsubmit="return validateAndSubmit(event)" class="bg-white border-2 border-brand-sage/20 rounded-2xl p-6 md:p-8 shadow-md max-w-2xl mx-auto mt-16 relative">
+        <form id="preorder-form" method="POST" action="https://script.google.com/macros/s/AKfycbzTEcpcu59-TGiViOmnjyJF4QYHawcG4YN9JXNj2o96XzxZNny6T0WWpuEVQNtFAhHr/exec" target="hidden_iframe" onsubmit="return validateAndSubmit(event)" class="bg-white border-2 border-brand-sage/20 rounded-2xl p-6 md:p-8 shadow-md max-w-2xl mx-auto mt-16 relative">
             <h4 class="font-serif font-bold text-xl text-center text-brand-darkText border-b border-stone-100 pb-4 mb-6 flex items-center justify-center gap-2">
                 <i class="fa-solid fa-file-invoice text-brand-sage"></i> 填寫自取預約資料
             </h4>
@@ -488,32 +488,16 @@
     <footer class="bg-brand-darkText text-stone-400 py-12 px-6 border-t border-stone-800 text-xs text-center md:text-left">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
             <div>
-                <h5 class="text-white font-serif font-bold text-sm tracking-wide mb-2">拾光荏苒 ╳ CalmhereCaffe自取預約</h5>
+                <h5 class="text-white font-serif font-bold text-sm tracking-wide mb-2">拾光荏苒 ╳ CalmhereCaffè自取預約</h5>
                 <p class="text-stone-500 leading-relaxed max-w-md">本網頁為自取預約專屬官網。所有巴斯克甜點皆為下單後新鮮烘烤。</p>
             </div>
             <div class="text-stone-500 md:text-right">
                 <p>門市點①：      宜蘭縣宜蘭市「拾光荏苒」</p>
                 <p>門市點②：宜蘭縣礁溪鄉「CalmhereCaffè」</p>
-                <p class="mt-2 cursor-default select-none hover:text-stone-300 transition-all" onclick="triggerSecretConfig()">© 2026 Bakery & Caffè. All Rights Reserved.</p>
+                <p class="mt-2 text-stone-500 select-none">© 2026 Bakery & Caffè. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
-
-    <div id="config-modal" class="fixed inset-0 bg-black/60 z-50 backdrop-blur-sm hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-md w-full shadow-2xl border border-stone-200 overflow-hidden">
-            <div class="bg-brand-sage p-6 text-white flex justify-between items-center">
-                <h4 class="font-bold font-serif text-base">⚙️ 管理員隱藏 API 設定</h4>
-                <button type="button" onclick="toggleConfigModal()"><i class="fa-solid fa-xmark text-lg"></i></button>
-            </div>
-            <div class="p-6 flex flex-col gap-5">
-                <div>
-                    <label class="text-xs font-bold text-stone-700 block mb-2">Google Apps Script 部署網址</label>
-                    <input type="url" id="google-form-url" placeholder="https://script.google.com/macros/s/.../exec" class="w-full bg-stone-50 border border-stone-300 rounded-lg p-3 text-xs focus:outline-none focus:border-brand-sage">
-                </div>
-                <button type="button" onclick="saveConfig()" class="w-full py-2.5 bg-brand-caramel text-white font-bold rounded-lg text-xs">儲存網頁設定</button>
-            </div>
-        </div>
-    </div>
 
     <div id="success-modal" class="fixed inset-0 bg-black/50 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-2xl max-w-sm w-full shadow-2xl p-6 text-center flex flex-col items-center gap-4">
@@ -528,6 +512,9 @@
     </div>
 
     <script>
+        // 後端 Apps Script API 部署網址直接寫死固定
+        const CONFIG_API_URL = "https://script.google.com/macros/s/AKfycbzTEcpcu59-TGiViOmnjyJF4QYHawcG4YN9JXNj2o96XzxZNny6T0WWpuEVQNtFAhHr/exec";
+
         const products = {
             slice_orig: { name: '【經典原味巴斯克】單片', price: 130, qty: 0 },
             slice_matcha_pure: { name: '【小山園五十鈴巴斯克】單片', price: 150, qty: 0 },
@@ -544,16 +531,11 @@
         };
 
         let isSubmitting = false;
-        let clickCount = 0;
         let isFormLocked = false;
 
         window.addEventListener('load', () => {
-            const savedUrl = localStorage.getItem('basque_google_form_url');
-            if (savedUrl) {
-                document.getElementById('google-form-url').value = savedUrl;
-                document.getElementById('preorder-form').action = savedUrl;
-                checkFormStatus(savedUrl);
-            }
+            // 自動偵測後台系統設定的開關接單狀態
+            checkFormStatus(CONFIG_API_URL);
         });
 
         function checkFormStatus(apiUrl) {
@@ -594,27 +576,7 @@
             });
         }
 
-        function triggerSecretConfig() {
-            clickCount++;
-            if (clickCount >= 5) {
-                clickCount = 0;
-                toggleConfigModal();
-            }
-            setTimeout(() => { clickCount = 0; }, 3000);
-        }
-
-        function toggleConfigModal() { document.getElementById('config-modal').classList.toggle('hidden'); }
-        
-        function saveConfig() {
-            const urlInput = document.getElementById('google-form-url').value.trim();
-            localStorage.setItem('basque_google_form_url', urlInput);
-            document.getElementById('preorder-form').action = urlInput;
-            alert('⚙️ 後端 API 網址設定完成！');
-            toggleConfigModal();
-            location.reload();
-        }
-
-        // 自取地點與日期/多時段（含上午時段）的連動邏輯
+        // 自取地點與日期/多時段的連動邏輯
         function handleLocationChange() {
             const dateInput = document.getElementById('pickup-date');
             const timeSelect = document.getElementById('pickup-time-slot');
@@ -623,27 +585,23 @@
             const selectedLocation = document.querySelector('input[name="pickupLocation"]:checked').value;
 
             if (selectedLocation === "宜蘭 | 拾光荏苒") {
-                // 1. 鎖定日期
                 dateInput.value = "2026-06-20";
                 dateInput.min = "2026-06-20";
                 dateInput.max = "2026-06-20";
                 dateInput.classList.add("border-brand-sage", "bg-emerald-50/50");
 
-                // 2. 隱藏不適用的上午與下午時段，強制鎖定夜間
                 morningOption.style.display = 'none';
                 afternoonOption.style.display = 'none';
                 timeSelect.value = "21:00 - 22:30";
             } else {
-                // 3. 礁溪點完全解鎖還原
                 dateInput.value = "";
                 dateInput.removeAttribute("min");
                 dateInput.removeAttribute("max");
                 dateInput.classList.remove("border-brand-sage", "bg-emerald-50/50");
 
-                // 4. 恢復所有可選時段（上午、下午、夜間）
                 morningOption.style.display = 'block';
                 afternoonOption.style.display = 'block';
-                timeSelect.value = ""; // 恢復成請選擇
+                timeSelect.value = "";
             }
         }
 
@@ -680,16 +638,13 @@
                 emptyMsg.classList.add('hidden');
             } else {
                 listContainer.classList.add('hidden');
-                emptyMsg.classList.remove('hidden');
+                emptyMsg.className = "text-center py-6 text-stone-400 text-sm";
             }
             totalSpan.innerText = total;
         }
 
         function validateAndSubmit(event) {
             if (isFormLocked) { alert('⚠️ 目前已暫停接單，無法送出預約。'); event.preventDefault(); return false; }
-            
-            const apiUrl = localStorage.getItem('basque_google_form_url');
-            if (!apiUrl) { alert('⚠️ 後端儲存 API 未設定，請點擊底部版權宣告喚出後台。'); event.preventDefault(); return false; }
 
             let orderItems = [];
             let totalAmount = 0;
@@ -707,7 +662,7 @@
 
             isSubmitting = true;
             document.getElementById('btn-submit').disabled = true;
-            document.getElementById('btn-text').innerText = "登記中...";
+            document.getElementById('btn-text').innerText = "連線登記中...";
             return true;
         }
 
@@ -715,7 +670,7 @@
             if (isSubmitting) {
                 isSubmitting = false;
                 document.getElementById('btn-submit').disabled = false;
-                document.getElementById('btn-text').innerText = "確認無誤，直接送出預訂";
+                document.getElementById('btn-text').innerText = "確認無誤，直接送出預約";
                 document.getElementById('success-modal').classList.remove('hidden');
             }
         }
@@ -728,7 +683,6 @@
                 if(document.getElementById(`qty-${key}`)) document.getElementById(`qty-${key}`).innerText = "0";
             }
             
-            // 表單重設時完整恢復欄位狀態
             const dateInput = document.getElementById('pickup-date');
             const morningOption = document.getElementById('slot-morning');
             const afternoonOption = document.getElementById('slot-afternoon');
