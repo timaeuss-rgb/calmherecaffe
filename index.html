@@ -338,7 +338,7 @@
 
                 <div>
                     <label class="block text-xs font-bold text-stone-700 mb-1">電子信箱 Email <span class="text-red-500">*</span></label>
-                    <input type="email" name="email" id="pickup-email" required placeholder="請輸入您的 Email 作為訂單確認憑證" class="w-full bg-stone-50 border border-stone-200 rounded-lg p-2.5 text-sm focus:outline-none focus:border-brand-sage focus:bg-white transition-all">
+                    <input type="email" name="email" id="pickup-email" required placeholder="請輸入您的 Email 作為訂單確認憑證(會傳訂購訊息)" class="w-full bg-stone-50 border border-stone-200 rounded-lg p-2.5 text-sm focus:outline-none focus:border-brand-sage focus:bg-white transition-all">
                 </div>
 
                 <div>
@@ -348,14 +348,14 @@
                             <input type="radio" name="pickupLocation" value="宜蘭 | 拾光荏苒" required onchange="handleLocationChange()" class="w-4 h-4 text-brand-sage focus:ring-brand-sage border-stone-300">
                             <div class="text-left">
                                 <span class="block text-xs font-bold text-brand-darkText">宜蘭 ╳ 拾光荏苒</span>
-                                <span class="text-[10px] text-stone-400">（此地點限定 6/19 取貨）</span>
+                                <span class="text-[10px] text-stone-400">宜蘭最強帕里尼 自取點（此地點限定 6/19 取貨）</span>
                             </div>
                         </label>
                         <label class="border border-stone-200 rounded-xl p-3 flex items-center gap-3 cursor-pointer hover:bg-stone-50 transition-all select-none">
                             <input type="radio" name="pickupLocation" value="礁溪 | CalmhereCaffe" onchange="handleLocationChange()" class="w-4 h-4 text-brand-sage focus:ring-brand-sage border-stone-300">
                             <div class="text-left">
                                 <span class="block text-xs font-bold text-brand-darkText">礁溪 ╳ Calmhere Caffè</span>
-                                <span class="text-[10px] text-stone-400">礁溪精品焙煎所自取點</span>
+                                <span class="text-[10px] text-stone-400">礁溪自家烘焙咖啡店 自取點</span>
                             </div>
                         </label>
                     </div>
@@ -412,12 +412,12 @@
     <footer class="bg-brand-darkText text-stone-400 py-12 px-6 border-t border-stone-800 text-xs text-center md:text-left">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
             <div>
-                <h5 class="text-white font-serif font-bold text-sm tracking-wide mb-2">手作烘焙工作室 ╳ 精選品牌聯名自取預約</h5>
-                <p class="text-stone-500 leading-relaxed max-w-md">本網頁為自取預約專屬官網。所有巴斯克甜點皆為每日限量新鮮手工焙烤配送。</p>
+                <h5 class="text-white font-serif font-bold text-sm tracking-wide mb-2">拾光荏苒 ╳ CalmhereCaffe自取預約</h5>
+                <p class="text-stone-500 leading-relaxed max-w-md">本網頁為自取預約專屬官網。所有巴斯克甜點皆為下單後新鮮烘烤。</p>
             </div>
             <div class="text-stone-500 md:text-right">
-                <p>門市點①：宜蘭市門市自取點「拾光荏苒」</p>
-                <p>門市點②：宜蘭縣礁溪鄉「Calmhere Caffè」</p>
+                <p>門市點①：      宜蘭縣宜蘭市「拾光荏苒」</p>
+                <p>門市點②：宜蘭縣礁溪鄉「CalmhereCaffè」</p>
                 <p class="mt-2 cursor-default select-none hover:text-stone-300 transition-all" onclick="triggerSecretConfig()">© 2026 Bakery & Caffè. All Rights Reserved.</p>
             </div>
         </div>
@@ -443,7 +443,7 @@
         <div class="bg-white rounded-2xl max-w-sm w-full shadow-2xl p-6 text-center flex flex-col items-center gap-4">
             <div class="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-3xl"><i class="fa-solid fa-circle-check"></i></div>
             <h4 class="font-serif font-bold text-xl text-brand-darkText">預約登記成功</h4>
-            <p class="text-stone-500 text-xs">您的美味巴斯克訂單已成功寫入系統！請於約定日期與時段前往指定門市取貨。</p>
+            <p class="text-stone-500 text-xs">您預訂的巴斯克訂單已成功寫入系統！請於約定日期與時段前往指定地點取貨。</p>
             <button type="button" onclick="closeSuccessModal()" class="w-full py-3 bg-brand-sage text-white text-xs font-bold rounded-lg">太棒了，我知道了</button>
         </div>
     </div>
@@ -510,7 +510,7 @@
                 <i class="fa-solid fa-circle-exclamation text-brand-caramel text-base mt-0.5"></i>
                 <div>
                     <p class="font-bold font-serif text-sm text-brand-caramel">感謝支持！今日網路預約已額滿</p>
-                    <p class="text-stone-500 mt-1">目前慢熟巴斯克乳酪蛋糕的預購單已全數額滿。現場可能留有極少量現貨，歡迎至 <b>Calmhere Caffè</b> 門市現場選購或致電詢問。</p>
+                    <p class="text-stone-500 mt-1">目前巴斯克乳酪蛋糕的預購單已全數額滿。現場可能留有極少量現貨，歡迎至 <b>Calmhere Caffè</b> 門市現場選購或致電詢問。</p>
                 </div>
             `;
             formContainer.insertBefore(alertBanner, formContainer.firstChild);
