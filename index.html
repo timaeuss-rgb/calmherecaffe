@@ -71,12 +71,12 @@
         <div class="max-w-4xl mx-auto px-6 relative z-10 text-center flex flex-col items-center">
             <span class="bg-brand-caramel text-white text-xs px-4 py-1 rounded-full tracking-widest font-semibold uppercase mb-4">SPECIAL COLLABORATION</span>
             <h2 class="text-3xl md:text-5xl font-serif font-bold tracking-wide leading-tight">在靜謐時光裡，<br>與極致慢熟巴斯克相遇</h2>
-<br>手作限定！每日限量烘烤、高溫焦糖外皮與冰淇淋般的細緻化口的內餡，為您的午後時光點綴完美儀式感。</h2>
+            <br><h2 class="text-xl md:text-2xl font-serif tracking-wide leading-snug">手作限定！每日限量烘烤、高溫焦糖外皮與冰淇淋般的細緻化口的內餡，為您的午後時光點綴完美儀式感。</h2>
             <div class="w-16 h-0.5 bg-brand-caramel my-5"></div>
             <p class="text-stone-300 text-xs md:text-sm max-w-xl leading-relaxed font-light">【CalmhereCaffe · 頂級奢華原料】<br>雙重奶油乳酪：北海道 LUXE 奶油乳酪 ╳ 澳洲卡夫鮮奶油乳酪
-  <br>進口鮮奶油：法國頂級天然鮮奶油                       
-  <br>在地放牧快樂雞蛋：宜蘭礁溪竹林產地直達、人道飼養       
-  <br>日本進口麵粉、日本砂糖、台灣本土地產香草莢            
+            <br>進口鮮奶油：法國頂級天然鮮奶油                       
+            <br>在地放牧快樂雞蛋：宜蘭礁溪竹林產地直達、人道飼養       
+            <br>日本進口麵粉、日本砂糖、台灣本土地產香草莢            
             </p>
         </div>
     </header>
@@ -351,7 +351,7 @@
                             <input type="radio" name="pickupLocation" value="宜蘭 | 拾光荏苒" required onchange="handleLocationChange()" class="w-4 h-4 text-brand-sage focus:ring-brand-sage border-stone-300">
                             <div class="text-left">
                                 <span class="block text-xs font-bold text-brand-darkText">宜蘭 ╳ 拾光荏苒</span>
-                                <span class="text-[10px] text-stone-400">宜蘭最強帕里尼 自取點（此地點限定 6/19 取貨）</span>
+                                <span class="text-[10px] text-stone-400">宜蘭最強帕里尼 自取點（此地點限定 06/20 取貨）</span>
                             </div>
                         </label>
                         <label class="border border-stone-200 rounded-xl p-3 flex items-center gap-3 cursor-pointer hover:bg-stone-50 transition-all select-none">
@@ -373,8 +373,8 @@
                         <label class="block text-xs font-bold text-stone-700 mb-1">取貨時段選擇 <span class="text-red-500">*</span></label>
                         <select name="pickupTimeSlot" id="pickup-time-slot" required class="w-full bg-stone-50 border border-stone-200 rounded-lg p-2.5 text-sm focus:outline-none focus:border-brand-sage focus:bg-white transition-all text-stone-700">
                             <option value="" disabled selected>請選擇自取時間段</option>
-                            <option value="13:00 - 16:30">下午時段｜13:00 - 16:30</option>
-                            <option value="21:00 - 22:30">夜間時段｜21:00 - 22:30</option>
+                            <option value="13:00 - 16:30" id="slot-afternoon">下午時段｜13:00 - 16:30</option>
+                            <option value="21:00 - 22:30" id="slot-night">夜間時段｜21:00 - 22:30</option>
                         </select>
                     </div>
                 </div>
@@ -452,7 +452,6 @@
     </div>
 
     <script>
-        // 產品名冊與計算矩陣
         const products = {
             slice_orig: { name: '【經典原味巴斯克】單片', price: 130, qty: 0 },
             slice_matcha_pure: { name: '【小山園五十鈴巴斯克】單片', price: 150, qty: 0 },
@@ -470,20 +469,17 @@
 
         let isSubmitting = false;
         let clickCount = 0;
-        let isFormLocked = false; // 是否已被後端遠端關閉表單
+        let isFormLocked = false;
 
         window.addEventListener('load', () => {
             const savedUrl = localStorage.getItem('basque_google_form_url');
             if (savedUrl) {
                 document.getElementById('google-form-url').value = savedUrl;
                 document.getElementById('preorder-form').action = savedUrl;
-                
-                // 🚀 連線檢查後端試算表的開關狀態
                 checkFormStatus(savedUrl);
             }
         });
 
-        // 🚀 新增：遠端狀態檢查機制
         function checkFormStatus(apiUrl) {
             fetch(apiUrl)
             .then(response => response.json())
@@ -495,18 +491,15 @@
             .catch(err => console.error("系統開關狀態讀取失敗，保持預設開放。", err));
         }
 
-        // 🚀 新增：一鍵鎖定前台視覺效果與按鈕
         function lockPreorderForm() {
             isFormLocked = true;
             const btnSubmit = document.getElementById('btn-submit');
             const formContainer = document.getElementById('preorder-form');
             
-            // 1. 鎖定按鈕並變更外觀
             btnSubmit.disabled = true;
             btnSubmit.className = "w-full py-4 bg-stone-400 text-stone-200 font-bold rounded-lg tracking-wider transition-all mt-6 cursor-not-allowed flex items-center justify-center gap-2 text-base shadow-none";
             btnSubmit.innerHTML = `<span>今日預約已額滿／暫停接單</span> <i class="fa-solid fa-lock"></i>`;
             
-            // 2. 於表單頂部插入絕美的溫暖提示橫幅
             const alertBanner = document.createElement('div');
             alertBanner.className = "bg-amber-50 border-l-4 border-brand-caramel p-4 mb-6 rounded-r-xl text-xs flex items-start gap-3 text-brand-darkText";
             alertBanner.innerHTML = `
@@ -518,7 +511,6 @@
             `;
             formContainer.insertBefore(alertBanner, formContainer.firstChild);
             
-            // 3. 將點選品項數量的按鈕全部禁能
             const allQtyButtons = document.querySelectorAll('#products-slice button, #products-whole button');
             allQtyButtons.forEach(btn => {
                 btn.disabled = true;
@@ -543,28 +535,41 @@
             document.getElementById('preorder-form').action = urlInput;
             alert('⚙️ 後端 API 網址設定完成！');
             toggleConfigModal();
-            location.reload(); // 重新整理網頁，應用新的狀態檢查
+            location.reload();
         }
 
+        // 🌟 重點修改：自取地點與日期/時段的連動控制
         function handleLocationChange() {
             const dateInput = document.getElementById('pickup-date');
+            const timeSelect = document.getElementById('pickup-time-slot');
+            const afternoonOption = document.getElementById('slot-afternoon');
             const selectedLocation = document.querySelector('input[name="pickupLocation"]:checked').value;
 
             if (selectedLocation === "宜蘭 | 拾光荏苒") {
-                dateInput.value = "2026-06-19";
-                dateInput.min = "2026-06-19";
-                dateInput.max = "2026-06-19";
+                // 1. 鎖定日期在 2026/06/20
+                dateInput.value = "2026-06-20";
+                dateInput.min = "2026-06-20";
+                dateInput.max = "2026-06-20";
                 dateInput.classList.add("border-brand-sage", "bg-emerald-50/50");
+
+                // 2. 移除下午時段，強制只剩夜間時段
+                afternoonOption.style.display = 'none';
+                timeSelect.value = "21:00 - 22:30"; // 自動幫客人選好唯一的夜間時段
             } else {
+                // 礁溪點解鎖還原
                 dateInput.value = "";
                 dateInput.removeAttribute("min");
                 dateInput.removeAttribute("max");
                 dateInput.classList.remove("border-brand-sage", "bg-emerald-50/50");
+
+                // 還原下午時段選項
+                afternoonOption.style.display = 'block';
+                timeSelect.value = ""; // 恢復成請選擇
             }
         }
 
         function updateQty(id, change) {
-            if (isFormLocked) return; // 萬一被鎖定，直接不執行任何點擊邏輯
+            if (isFormLocked) return;
             let newQty = products[id].qty + change;
             if (newQty < 0) newQty = 0;
             products[id].qty = newQty;
@@ -616,7 +621,7 @@
                 }
             }
 
-            if (orderItems.length === 0) { alert('⚠️ 您尚未選取任何品項喔！'); event.preventDefault(); return false; }
+            if (orderItems.length === 0) { alert('⚠️ 您尚未選取 any 品項喔！'); event.preventDefault(); return false; }
 
             document.getElementById('hidden-items').value = orderItems.join('、');
             document.getElementById('hidden-total').value = totalAmount;
@@ -643,10 +648,15 @@
                 products[key].qty = 0;
                 if(document.getElementById(`qty-${key}`)) document.getElementById(`qty-${key}`).innerText = "0";
             }
+            
+            // 表單重設時完整恢復欄位狀態
             const dateInput = document.getElementById('pickup-date');
+            const afternoonOption = document.getElementById('slot-afternoon');
             dateInput.removeAttribute("min");
             dateInput.removeAttribute("max");
             dateInput.classList.remove("border-brand-sage", "bg-emerald-50/50");
+            afternoonOption.style.display = 'block';
+            
             recalculateCart();
         }
     </script>
