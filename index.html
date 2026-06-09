@@ -535,7 +535,17 @@
             <h5 class="text-xs font-bold text-stone-400 border-t border-stone-100 pt-4 mb-3 tracking-wider uppercase">您的預約品項明細</h5>
             <div id="cart-empty-message" class="text-center py-6 text-stone-400 text-sm">目前尚未選購商品，快在上方點選數量吧！</div>
             <div id="cart-items-list" class="space-y-3 hidden"></div>
+<div class="bg-stone-50 rounded-xl p-4 text-xs text-stone-500 mb-5">
 
+❄️ 保存方式：
+冷藏 3 天｜冷凍 7 天
+
+<br><br>
+
+🍴 食用建議：
+冷藏退冰 2 小時風味最佳
+
+</div>
             <div class="border-t border-stone-100 mt-4 pt-4 flex justify-between items-center font-bold text-lg text-brand-darkText">
                 <span>預估結帳總額：</span>
                 <span class="text-brand-caramel font-serif text-2.5xl">NT$ <span id="cart-total">0</span></span>
@@ -580,8 +590,20 @@
     <div id="success-modal" class="fixed inset-0 bg-black/50 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-2xl max-w-sm w-full shadow-2xl p-6 text-center flex flex-col items-center gap-4">
             <div class="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-3xl"><i class="fa-solid fa-circle-check"></i></div>
-            <h4 class="font-serif font-bold text-xl text-brand-darkText">預約登記成功</h4>
-            <p class="text-stone-500 text-xs">您預訂的巴斯克訂單已成功寫入系統！請於約定日期與時段前往指定地點取貨。</p>
+            <h4 class="font-serif font-bold text-xl text-brand-darkText">
+
+預購完成 ☕️
+
+</h4>
+
+<p class="text-stone-500 text-sm">
+
+感謝您選擇 Calmhere Caffè ☺️
+<br><br>
+
+確認資訊將寄送至您的 Email。
+
+</p>
             <button type="button" onclick="closeSuccessModal()" class="w-full py-3 bg-brand-sage text-white text-xs font-bold rounded-lg">太棒了，我知道了</button>
         </div>
     </div>
@@ -759,7 +781,7 @@
                 }
             }
 
-            if (orderItems.length === 0) { alert('⚠️ 您尚未選取 any 品項喔！'); event.preventDefault(); return false; }
+            if (orderItems.length === 0) { alert('⚠️ 您尚未選擇商品喔！'); event.preventDefault(); return false; }
 
             document.getElementById('hidden-items').value = orderItems.join('、');
             document.getElementById('hidden-total').value = totalAmount;
