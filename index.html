@@ -71,12 +71,12 @@
         <div class="max-w-4xl mx-auto px-6 relative z-10 text-center flex flex-col items-center">
             <span class="bg-brand-caramel text-white text-xs px-4 py-1 rounded-full tracking-widest font-semibold uppercase mb-4">SPECIAL COLLABORATION</span>
             <h2 class="text-3xl md:text-5xl font-serif font-bold tracking-wide leading-tight">在靜謐時光裡，<br>與極致慢熟巴斯克相遇</h2>
-            <br><h2 class="text-3xl md:text-5xl font-serif font-bold tracking-wide leading-tight">手作限定！每日限量烘烤、高溫焦糖外皮與冰淇淋般的細緻化口的內餡，為您的午後時光點綴完美儀式感。</h2>
+            <br><h2 class="text-xl md:text-2xl font-serif tracking-wide leading-snug">手作限定！每日限量烘烤、高溫焦糖外皮與冰淇淋般的細緻化口的內餡，為您的午後時光點綴完美儀式感。</h2>
             <div class="w-16 h-0.5 bg-brand-caramel my-5"></div>
-            <p class="text-stone-300 text-xs md:text-sm max-w-xl leading-relaxed font-light">【CalmhereCaffe · 頂級奢華原料】<br><br>雙重奶油乳酪：北海道 LUXE 奶油乳酪 ╳ 澳洲卡夫鮮奶油乳酪
-            <br>進口鮮奶油：法國頂級天然鮮奶油
-            <br>在地放牧快樂雞蛋：宜蘭礁溪竹林產地直達、人道飼養
-            <br>日本進口麵粉、日本砂糖、台灣本土地產香草莢         
+            <p class="text-stone-300 text-xs md:text-sm max-w-xl leading-relaxed font-light">【CalmhereCaffe · 頂級奢華原料】<br>雙重奶油乳酪：北海道 LUXE 奶油乳酪 ╳ 澳洲卡夫鮮奶油乳酪
+            <br>進口鮮奶油：法國頂級天然鮮奶油                       
+            <br>在地放牧快樂雞蛋：宜蘭礁溪竹林產地直達、人道飼養       
+            <br>日本進口麵粉、日本砂糖、台灣本土地產香草莢            
             </p>
         </div>
     </header>
@@ -373,6 +373,7 @@
                         <label class="block text-xs font-bold text-stone-700 mb-1">取貨時段選擇 <span class="text-red-500">*</span></label>
                         <select name="pickupTimeSlot" id="pickup-time-slot" required class="w-full bg-stone-50 border border-stone-200 rounded-lg p-2.5 text-sm focus:outline-none focus:border-brand-sage focus:bg-white transition-all text-stone-700">
                             <option value="" disabled selected>請選擇自取時間段</option>
+                            <option value="08:00 - 12:30" id="slot-morning">上午時段｜08:00 - 12:30</option>
                             <option value="13:00 - 16:30" id="slot-afternoon">下午時段｜13:00 - 16:30</option>
                             <option value="21:00 - 22:30" id="slot-night">夜間時段｜21:00 - 22:30</option>
                         </select>
@@ -538,31 +539,34 @@
             location.reload();
         }
 
-        // 🌟 重點修改：自取地點與日期/時段的連動控制
+        // 🌟 自取地點與日期/多時段（含上午時段）的連動邏輯
         function handleLocationChange() {
             const dateInput = document.getElementById('pickup-date');
             const timeSelect = document.getElementById('pickup-time-slot');
+            const morningOption = document.getElementById('slot-morning');
             const afternoonOption = document.getElementById('slot-afternoon');
             const selectedLocation = document.querySelector('input[name="pickupLocation"]:checked').value;
 
             if (selectedLocation === "宜蘭 | 拾光荏苒") {
-                // 1. 鎖定日期在 2026/06/20
+                // 1. 鎖定日期
                 dateInput.value = "2026-06-20";
                 dateInput.min = "2026-06-20";
                 dateInput.max = "2026-06-20";
                 dateInput.classList.add("border-brand-sage", "bg-emerald-50/50");
 
-                // 2. 移除下午時段，強制只剩夜間時段
+                // 2. 隱藏不適用的上午與下午時段，強制鎖定夜間
+                morningOption.style.display = 'none';
                 afternoonOption.style.display = 'none';
-                timeSelect.value = "21:00 - 22:30"; // 自動幫客人選好唯一的夜間時段
+                timeSelect.value = "21:00 - 22:30";
             } else {
-                // 礁溪點解鎖還原
+                // 3. 礁溪點完全解鎖還原
                 dateInput.value = "";
                 dateInput.removeAttribute("min");
                 dateInput.removeAttribute("max");
                 dateInput.classList.remove("border-brand-sage", "bg-emerald-50/50");
 
-                // 還原下午時段選項
+                // 4. 恢復所有可選時段（上午、下午、夜間）
+                morningOption.style.display = 'block';
                 afternoonOption.style.display = 'block';
                 timeSelect.value = ""; // 恢復成請選擇
             }
@@ -651,10 +655,14 @@
             
             // 表單重設時完整恢復欄位狀態
             const dateInput = document.getElementById('pickup-date');
+            const morningOption = document.getElementById('slot-morning');
             const afternoonOption = document.getElementById('slot-afternoon');
+            
             dateInput.removeAttribute("min");
             dateInput.removeAttribute("max");
             dateInput.classList.remove("border-brand-sage", "bg-emerald-50/50");
+            
+            morningOption.style.display = 'block';
             afternoonOption.style.display = 'block';
             
             recalculateCart();
