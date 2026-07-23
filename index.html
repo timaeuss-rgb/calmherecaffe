@@ -434,7 +434,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-xs font-bold text-stone-700 mb-1">預計自取日期 <span class="text-red-500">*</span></label>
-                        <input type="date" name="pickupDate" id="pickup-date" required class="w-full bg-stone-50 border border-stone-200 rounded-lg p-2.5 text-sm focus:outline-none focus:border-brand-sage focus:bg-white transition-all">
+                        <input type="date" name="pickupDate" id="pickup-date" required onchange="handleDateChange()" class="w-full bg-stone-50 border border-stone-200 rounded-lg p-2.5 text-sm focus:outline-none focus:border-brand-sage focus:bg-white transition-all">
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-stone-700 mb-1">取貨時段選擇 <span class="text-red-500">*</span></label>
