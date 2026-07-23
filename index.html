@@ -586,26 +586,46 @@
             const afternoonOption = document.getElementById('slot-afternoon');
             const nightOption = document.getElementById('slot-night');
             const selectedLocation = document.querySelector('input[name="pickupLocation"]:checked').value;
-
+        
             if (selectedLocation === "宜蘭 | 拾光荏苒") {
+                // 1. 日期控制
                 dateInput.value = "2026-07-25";
                 dateInput.min = "2026-07-25";
                 dateInput.max = "2026-07-25";
                 dateInput.classList.add("border-brand-sage", "bg-emerald-50/50");
-
-                morningOption.style.display = 'none';
-                afternoonOption.style.display = 'none';
+        
+                // 2. 時段控制：禁用並隱藏 上午/下午 時段（兼容手機版 Safari/Android）
+                morningOption.disabled = true;
+                morningOption.hidden = true;
+                
+                afternoonOption.disabled = true;
+                afternoonOption.hidden = true;
+        
+                nightOption.disabled = false;
+                nightOption.hidden = false;
+        
+                // 自動指定為夜間時段
                 timeSelect.value = "21:00 - 22:00";
+        
             } else {
+                // 1. 日期控制
                 dateInput.value = "";
                 dateInput.removeAttribute("min");
                 dateInput.removeAttribute("max");
                 dateInput.classList.remove("border-brand-sage", "bg-emerald-50/50");
-
-                morningOption.style.display = 'block';
-                afternoonOption.style.display = 'block';
-                nightOption.style.display = 'none';
-                timeSelect.value = "8:00 - 17:00";
+        
+                // 2. 時段控制：開啟 上午/下午 時段，禁用並隱藏 夜間時段
+                morningOption.disabled = false;
+                morningOption.hidden = false;
+        
+                afternoonOption.disabled = false;
+                afternoonOption.hidden = false;
+        
+                nightOption.disabled = true;
+                nightOption.hidden = true;
+        
+                // 清空選擇，讓使用者手動選取
+                timeSelect.value = "";
             }
         }
 
