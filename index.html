@@ -579,6 +579,7 @@
         }
 
         // 自取地點與日期/多時段的連動邏輯
+        // 自取地點與日期/多時段的連動邏輯
         function handleLocationChange() {
             const dateInput = document.getElementById('pickup-date');
             const timeSelect = document.getElementById('pickup-time-slot');
@@ -588,13 +589,16 @@
             const selectedLocation = document.querySelector('input[name="pickupLocation"]:checked').value;
         
             if (selectedLocation === "宜蘭 | 拾光荏苒") {
-                // 1. 日期控制
+                // 1. 日期控制：設定 2026-07-25 並「鎖定」不可修改
                 dateInput.value = "2026-07-25";
                 dateInput.min = "2026-07-25";
                 dateInput.max = "2026-07-25";
-                dateInput.classList.add("border-brand-sage", "bg-emerald-50/50");
+                dateInput.readOnly = true; // 🔒 鎖定欄位，無法自行點開月曆選別天
+                
+                // 視覺標示：改為淺綠背景 + 鎖定游標
+                dateInput.className = "w-full bg-emerald-50 border border-brand-sage text-brand-sage font-bold rounded-lg p-2.5 text-sm cursor-not-allowed transition-all";
         
-                // 2. 時段控制：禁用並隱藏 上午/下午 時段（兼容手機版 Safari/Android）
+                // 2. 時段控制：禁用並隱藏 上午/下午 時段（完美兼容手機版 Safari/Android）
                 morningOption.disabled = true;
                 morningOption.hidden = true;
                 
@@ -608,11 +612,14 @@
                 timeSelect.value = "21:00 - 22:00";
         
             } else {
-                // 1. 日期控制
+                // 1. 日期控制：解鎖並恢復讓顧客自由選取
                 dateInput.value = "";
                 dateInput.removeAttribute("min");
                 dateInput.removeAttribute("max");
-                dateInput.classList.remove("border-brand-sage", "bg-emerald-50/50");
+                dateInput.readOnly = false; // 🔓 解除鎖定
+                
+                // 恢復預設輸入框樣式
+                dateInput.className = "w-full bg-stone-50 border border-stone-200 rounded-lg p-2.5 text-sm focus:outline-none focus:border-brand-sage focus:bg-white transition-all";
         
                 // 2. 時段控制：開啟 上午/下午 時段，禁用並隱藏 夜間時段
                 morningOption.disabled = false;
@@ -624,7 +631,7 @@
                 nightOption.disabled = true;
                 nightOption.hidden = true;
         
-                // 清空選擇，讓使用者手動選取
+                // 清空時段選擇，讓顧客手動選取
                 timeSelect.value = "";
             }
         }
