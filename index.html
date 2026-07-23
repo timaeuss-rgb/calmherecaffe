@@ -415,14 +415,16 @@
                     <label class="block text-xs font-bold text-stone-700 mb-2">指定自取地點 <span class="text-red-500">*</span></label>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <label class="border border-stone-200 rounded-xl p-3 flex items-center gap-3 cursor-pointer hover:bg-stone-50 transition-all select-none">
-                            <input type="radio" name="pickupLocation" value="宜蘭 | 拾光荏苒" required onchange="handleLocationChange()" class="w-4 h-4 text-brand-sage focus:ring-brand-sage border-stone-300">
+                            <!-- 加上 onclick 確保手機一點擊立刻觸發 -->
+                            <input type="radio" name="pickupLocation" value="宜蘭 | 拾光荏苒" required onchange="handleLocationChange()" onclick="handleLocationChange()" class="w-4 h-4 text-brand-sage focus:ring-brand-sage border-stone-300">
                             <div class="text-left">
                                 <span class="block text-xs font-bold text-brand-darkText">宜蘭 ╳ 拾光荏苒</span>
                                 <span class="text-[10px] text-stone-400">宜蘭最強帕里尼 自取點（此地點限定 07/25 取貨）</span>
                             </div>
                         </label>
                         <label class="border border-stone-200 rounded-xl p-3 flex items-center gap-3 cursor-pointer hover:bg-stone-50 transition-all select-none">
-                            <input type="radio" name="pickupLocation" value="礁溪 | CalmhereCaffe" onchange="handleLocationChange()" class="w-4 h-4 text-brand-sage focus:ring-brand-sage border-stone-300">
+                            <!-- 加上 onclick 確保手機一點擊立刻觸發 -->
+                            <input type="radio" name="pickupLocation" value="礁溪 | CalmhereCaffe" onchange="handleLocationChange()" onclick="handleLocationChange()" class="w-4 h-4 text-brand-sage focus:ring-brand-sage border-stone-300">
                             <div class="text-left">
                                 <span class="block text-xs font-bold text-brand-darkText">礁溪 ╳ Calmhere Caffè</span>
                                 <span class="text-[10px] text-stone-400">礁溪自家烘焙咖啡店 自取點</span>
