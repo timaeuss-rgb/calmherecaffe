@@ -436,7 +436,18 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-xs font-bold text-stone-700 mb-1">預計自取日期 <span class="text-red-500">*</span></label>
+                        
+                        <!-- 1. 當選擇礁溪時：顯示標準日期選擇器 -->
                         <input type="date" name="pickupDate" id="pickup-date" required onchange="handleDateChange()" class="w-full bg-stone-50 border border-stone-200 rounded-lg p-2.5 text-sm focus:outline-none focus:border-brand-sage focus:bg-white transition-all">
+                        
+                        <!-- 2. 當選擇拾光荏苒時：顯示這個優雅的純文字標籤（預設隱藏） -->
+                        <div id="pickup-date-text" class="hidden w-full bg-emerald-50 border border-brand-sage text-brand-sage font-bold rounded-lg p-2.5 text-sm flex items-center justify-between">
+                            <span>📅 2026 / 07 / 25 (六) 限定取貨</span>
+                            <span class="text-[10px] bg-brand-sage text-white px-2 py-0.5 rounded">不可更換</span>
+                        </div>
+                    
+                        <!-- 3. 用於傳遞給 Google 表單/GAS 後端的隱藏欄位 (當選拾光荏苒時啟用) -->
+                        <input type="hidden" id="pickup-date-hidden" name="pickupDate" value="2026-07-25" disabled>
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-stone-700 mb-1">取貨時段選擇 <span class="text-red-500">*</span></label>
@@ -581,24 +592,31 @@
         }
 
         // 自取地點與日期/多時段的連動邏輯
-        // 自取地點與日期/多時段的連動邏輯
         function handleLocationChange() {
             const dateInput = document.getElementById('pickup-date');
+            const dateTextDisplay = document.getElementById('pickup-date-text');
+            const dateHiddenInput = document.getElementById('pickup-date-hidden');
+            
             const timeSelect = document.getElementById('pickup-time-slot');
             const morningOption = document.getElementById('slot-morning');
             const afternoonOption = document.getElementById('slot-afternoon');
             const nightOption = document.getElementById('slot-night');
-            const selectedLocation = document.querySelector('input[name="pickupLocation"]:checked').value;
+            
+            const checkedRadio = document.querySelector('input[name="pickupLocation"]:checked');
+            if (!checkedRadio) return;
+            
+            const selectedLocation = checkedRadio.value;
         
             if (selectedLocation === "宜蘭 | 拾光荏苒") {
-                // 1. 日期控制：設定 2026-07-25 並鎖定
-                dateInput.value = "2026-07-25";
-                dateInput.min = "2026-07-25";
-                dateInput.max = "2026-07-25";
-                dateInput.readOnly = true;
-                dateInput.className = "w-full bg-emerald-50 border border-brand-sage text-brand-sage font-bold rounded-lg p-2.5 text-sm cursor-not-allowed transition-all";
+                // 1. 日期切換：隱藏日期選擇器，顯示純文字 7/25 標籤
+                dateInput.classList.add('hidden');
+                dateInput.required = false;      // 暫停原輸入框的必填驗證
+                dateInput.disabled = true;       // 避免傳遞空值
+                
+                dateTextDisplay.classList.remove('hidden'); // 顯示綠色 7/25 文字塊
+                dateHiddenInput.disabled = false;           // 啟用隱藏欄位，確保 2026-07-25 順利送出至試算表
         
-                // 2. 時段控制：隱藏與禁用 上午/下午 時段
+                // 2. 時段控制：僅保留夜間時段
                 morningOption.disabled = true;
                 morningOption.hidden = true;
                 afternoonOption.disabled = true;
@@ -610,14 +628,16 @@
                 timeSelect.value = "21:00 - 22:00";
         
             } else {
-                // 1. 日期控制：解鎖並恢復自由選取
-                dateInput.value = "";
-                dateInput.removeAttribute("min");
-                dateInput.removeAttribute("max");
-                dateInput.readOnly = false;
-                dateInput.className = "w-full bg-stone-50 border border-stone-200 rounded-lg p-2.5 text-sm focus:outline-none focus:border-brand-sage focus:bg-white transition-all";
+                // 1. 日期切換：切回礁溪時，恢復標準日期選擇器
+                dateTextDisplay.classList.add('hidden');
+                dateHiddenInput.disabled = true;
         
-                // 2. 時段控制：開啟 上午/下午 時段，隱藏與禁用 夜間時段
+                dateInput.classList.remove('hidden');
+                dateInput.required = true;       // 恢復必填
+                dateInput.disabled = false;
+                dateInput.value = "";
+        
+                // 2. 時段控制：恢復上午/下午時段
                 morningOption.disabled = false;
                 morningOption.hidden = false;
                 afternoonOption.disabled = false;
